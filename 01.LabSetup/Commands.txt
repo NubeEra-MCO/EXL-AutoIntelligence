@@ -1,0 +1,18 @@
+ssh username@IP
+
+%userprofile%\.ssh\config
+Host exl
+    HostName 34.47.160.170 <--- Pick from EXL Sandbox
+    User labuser
+
+node --version
+npm --version
+pac version
+pac help
+pac auth help
+pac auth create help
+
+pac auth create --deviceCode
+
+pac auth list
+pac auth who
