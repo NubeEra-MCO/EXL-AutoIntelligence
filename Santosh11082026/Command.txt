@@ -1,6 +1,7 @@
 node --version
 npm --version
-pac version
+pac version 
+
 
 # Fix expired auth token error (AADSTS50173)
 pac auth clear
