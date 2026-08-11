@@ -5,14 +5,14 @@
 	logallrefupdates = true
 	symlinks = false
 	ignorecase = true
-	sshCommand = ssh -i C:\\\\Users\\\\vmuser\\\\.ssh\\\\mujahed.pem -o IdentitiesOnly=yes
+	sshCommand = ssh -i U:\\\\\\\\Persistent\\\\\\\\PowerAutomation\\\\\\\\.ssh\\\\\\\\santosh.pem -o IdentitiesOnly=yes
+[user]
+	name = santoshsingh9
 [remote "origin"]
 	url = git@github.com:NubeEra-MCO/EXL-AutoIntelligence.git
 	fetch = +refs/heads/*:refs/remotes/origin/*
-[branch "practice"]
+[branch "master"]
 	remote = origin
 	merge = refs/heads/practice
-	vscode-merge-base = origin/practice
-[user]
-	name = Santoshsingh4
-	email= Santosh.singh4@exlservice.com
+[push]
+	default = upstream
