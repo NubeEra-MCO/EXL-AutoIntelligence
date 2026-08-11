@@ -1,2 +1,0 @@
-Hi,  This is Santosh! 
-Today we are practice git command 
