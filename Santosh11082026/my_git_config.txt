@@ -1,0 +1,18 @@
+[core]
+	repositoryformatversion = 0
+	filemode = false
+	bare = false
+	logallrefupdates = true
+	symlinks = false
+	ignorecase = true
+	sshCommand = ssh -i C:\\\\Users\\\\vmuser\\\\.ssh\\\\mujahed.pem -o IdentitiesOnly=yes
+[remote "origin"]
+	url = git@github.com:NubeEra-MCO/EXL-AutoIntelligence.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "practice"]
+	remote = origin
+	merge = refs/heads/practice
+	vscode-merge-base = origin/practice
+[user]
+	name = Santoshsingh4
+	email= Santosh.singh4@exlservice.com
