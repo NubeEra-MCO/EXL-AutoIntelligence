@@ -1,1 +1,24 @@
-welcome
+node --version
+npm --version
+pac version
+
+# Fix expired auth token error (AADSTS50173)
+pac auth clear
+pac auth create --devicecode
+# --> Visit https://login.microsoft.com/device and enter the code shown
+
+# Select Power Platform environment
+pac org select --environment 1a690d41-716d-e1ca-9c29-3d386b73e1db
+
+# Create a new Power Apps Code App (vite template)
+npx degit github:microsoft/PowerAppsCodeApps/templates/vite BankingAccountApp55
+cd BankingAccountApp55
+npm install
+
+# Initialize PAC code config (run BEFORE npm run dev)
+pac code init --displayName BankingAccountApp55
+# Note: "Assertion failed: !(handle->flags & UV_HANDLE_CLOSING)" is a harmless
+# Windows libuv warning from PAC CLI - the command succeeds and creates power.config.json
+
+# Start local dev server
+npm run dev
