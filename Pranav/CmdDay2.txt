@@ -1,0 +1,195 @@
+Microsoft Windows [Version 10.0.26100.33158]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\vmuser>pac auth create --devicecode
+To sign in, use a web browser to open the page https://login.microsoft.com/device and enter the code HY8F77L7U to authenticate.
+'Pranav1786340539884@nplicense.onmicrosoft.com' authenticated successfully.
+Authentication profile created
+    * UNIVERSAL                                : Pranav1786340539884@nplicense.onmicrosoft.com Public
+
+
+C:\Users\vmuser>npm install
+npm error code ENOENT
+npm error syscall open
+npm error path C:\Users\vmuser\package.json
+npm error errno -4058
+npm error enoent Could not read package.json: Error: ENOENT: no such file or directory, open 'C:\Users\vmuser\package.json'
+npm error enoent This is related to npm not being able to find a file.
+npm error enoent
+npm error A complete log of this run can be found in: C:\Users\vmuser\AppData\Local\npm-cache\_logs\2026-08-11T04_26_30_942Z-debug-0.log
+
+C:\Users\vmuser>pac code init --displayname "App from Scratch"
+Connected as Pranav1786340539884@nplicense.onmicrosoft.com
+Microsoft PowerPlatform CLI
+Version: 2.10.1+g52c3983 (.NET 10.0.10)
+Online documentation: https://aka.ms/PowerPlatformCLI
+Feedback, Suggestions, Issues: https://github.com/microsoft/powerplatform-build-tools/discussions
+
+Error: No active environment set for the current auth profile. Specify an environment via the `--environment` argument or use an auth profile with an active environment. Alternatively, you can use `pac org select` to set the active environment for the current auth profile.
+
+
+C:\Users\vmuser>npm run dev
+npm error code ENOENT
+npm error syscall open
+npm error path C:\Users\vmuser\package.json
+npm error errno -4058
+npm error enoent Could not read package.json: Error: ENOENT: no such file or directory, open 'C:\Users\vmuser\package.json'
+npm error enoent This is related to npm not being able to find a file.
+npm error enoent
+npm error A complete log of this run can be found in: C:\Users\vmuser\AppData\Local\npm-cache\_logs\2026-08-11T04_29_34_841Z-debug-0.log
+
+C:\Users\vmuser>pac auth list
+Index Active Kind      Name User                                          Cloud  Type Environment Environment Url
+[1]   *      UNIVERSAL      Pranav1786340539884@nplicense.onmicrosoft.com Public User
+
+
+C:\Users\vmuser>pac auth who
+Connected as Pranav1786340539884@nplicense.onmicrosoft.com
+
+Type:               User
+Cloud:              Public
+Tenant Id:          38796c72-fd4b-4ffb-9532-ed2694021129
+Tenant Country:     IN
+User:               Pranav1786340539884@nplicense.onmicrosoft.com
+Entra ID Object Id: 8f592a8c-f5d4-4405-b776-f7716f73291e
+PUID:               10032006226658A2
+Token Expires:      8/11/2026 5:24:57 AM +00:00
+Authority:          https://login.microsoftonline.com/organizations
+
+
+C:\Users\vmuser>pac auth select --index 1
+New default profile:
+    * UNIVERSAL                                : Pranav1786340539884@nplicense.onmicrosoft.com Public
+
+
+C:\Users\vmuser>pac code init --displayname "App from Scratch"
+Connected as Pranav1786340539884@nplicense.onmicrosoft.com
+Microsoft PowerPlatform CLI
+Version: 2.10.1+g52c3983 (.NET 10.0.10)
+Online documentation: https://aka.ms/PowerPlatformCLI
+Feedback, Suggestions, Issues: https://github.com/microsoft/powerplatform-build-tools/discussions
+
+Error: No active environment set for the current auth profile. Specify an environment via the `--environment` argument or use an auth profile with an active environment. Alternatively, you can use `pac org select` to set the active environment for the current auth profile.
+
+
+C:\Users\vmuser>pac --environment
+Microsoft PowerPlatform CLI
+Version: 2.10.1+g52c3983 (.NET 10.0.10)
+Online documentation: https://aka.ms/PowerPlatformCLI
+Feedback, Suggestions, Issues: https://github.com/microsoft/powerplatform-build-tools/discussions
+
+Error: Not a valid command. Try running 'pac [command] help'.
+
+Hints:
+  Parse failed on:            --environment
+  Current command:            (None)
+  Is this a known command?    No, was it misspelled?
+  Is this a known argument?   Yes
+  Was it quote wrapped?       No, be sure to wrap values that contain spaces.
+
+Usage: pac [admin] [application] [auth] [canvas] [catalog] [code] [connection] [connector] [copilot] [env] [help] [managed-identity] [model] [modelbuilder] [package] [pages] [pcf] [pipeline] [plugin] [power-fx] [solution] [telemetry] [test] [tool]
+
+  admin                       Work with your Power Platform Admin Account.
+  application                 Commands for listing and installing available Dataverse applications from Microsoft Marketplace.
+  auth                        Manage how you authenticate to various services.
+  canvas                      Operating with Power Apps .msapp files.
+  catalog                     Commands for working with Catalog in Power Platform.
+  code                        (Preview) Commands to manage your Code apps.
+  connection                  Commands for working with Dataverse connection.
+  connector                   Commands for working with Power Platform Connectors.
+  copilot                     Tools and utilities for copilot management.
+  env                         Work with your Dataverse organization.
+  help                        Show help for the Microsoft Power Platform CLI.
+  managed-identity            Commands for managing Managed Identity records for Dataverse components.
+  model                       Commands for working with model-driven apps.
+  modelbuilder                Code Generator for Dataverse APIs and Tables.
+  package                     Commands for working with Dataverse package projects.
+  pages                       Commands for working with Power Pages website.
+  pcf                         Commands for working with Power Apps component framework projects.
+  pipeline                    Work with Pipelines.
+  plugin                      Commands for working with Dataverse plug-in class library.
+  power-fx                    (Preview) Commands for working with Power Fx.
+  solution                    Commands for working with Dataverse solution projects.
+  telemetry                   Manage telemetry settings.
+  test                        (Deprecated) Execution of automated tests for a Power App.
+  tool                        Power Platform tools that can be installed and launched.
+
+
+C:\Users\vmuser>pac env
+Microsoft PowerPlatform CLI
+Version: 2.10.1+g52c3983 (.NET 10.0.10)
+Online documentation: https://aka.ms/PowerPlatformCLI
+Feedback, Suggestions, Issues: https://github.com/microsoft/powerplatform-build-tools/discussions
+
+Help:
+Work with your Dataverse organization.
+
+Commands:
+Usage: pac env [who] [list] [fetch] [list-settings] [update-settings] [select]
+
+  who                         Displays information about the current Dataverse organization.
+  list                        List all Dataverse environments from Global Discovery Service (GDS).
+  fetch                       Performs FetchXML query against Dataverse
+  list-settings               List environment settings
+  update-settings             Update environment settings
+  select                      Select default organization for current authentication profile.
+
+
+
+C:\Users\vmuser>pac env list
+Connected as Pranav1786340539884@nplicense.onmicrosoft.com
+Active Display Name                                     Environment ID                       Environment URL                        Unique Name
+       Nuvepro Technologies Pvt Ltd nplicense (default) 38796c72-fd4b-4ffb-9532-ed2694021129 https://org90c6dfd5.crm8.dynamics.com/ unqfdc08f531f7cf11180686045bd720
+
+
+C:\Users\vmuser>powershell
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
+
+PS C:\Users\vmuser> cd .ssh
+PS C:\Users\vmuser\.ssh> Get-Service ssh-agent
+
+Status   Name               DisplayName
+------   ----               -----------
+Stopped  ssh-agent          OpenSSH Authentication Agent
+
+
+PS C:\Users\vmuser\.ssh> Start-Service ssh-agent
+Start-Service : Service 'OpenSSH Authentication Agent (ssh-agent)' cannot be started due to the following error: Cannot start service ssh-agent on computer '.'.
+At line:1 char:1
++ Start-Service ssh-agent
++ ~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OpenError: (System.ServiceProcess.ServiceController:ServiceController) [Start-Service], ServiceCommandException
+    + FullyQualifiedErrorId : CouldNotStartService,Microsoft.PowerShell.Commands.StartServiceCommand
+
+PS C:\Users\vmuser\.ssh> Start-Service ssh-agent
+Start-Service : Service 'OpenSSH Authentication Agent (ssh-agent)' cannot be started due to the following error: Cannot start service ssh-agent on computer '.'.
+At line:1 char:1
++ Start-Service ssh-agent
++ ~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OpenError: (System.ServiceProcess.ServiceController:ServiceController) [Start-Service], ServiceCommandException
+    + FullyQualifiedErrorId : CouldNotStartService,Microsoft.PowerShell.Commands.StartServiceCommand
+
+PS C:\Users\vmuser\.ssh> Get-Service ssh-agent
+
+Status   Name               DisplayName
+------   ----               -----------
+Running  ssh-agent          OpenSSH Authentication Agent
+
+
+PS C:\Users\vmuser\.ssh> pac code init --displayname "App from Scratch"
+Connected as Pranav1786340539884@nplicense.onmicrosoft.com
+Microsoft PowerPlatform CLI
+Version: 2.10.1+g52c3983 (.NET 10.0.10)
+Online documentation: https://aka.ms/PowerPlatformCLI
+Feedback, Suggestions, Issues: https://github.com/microsoft/powerplatform-build-tools/discussions
+
+Error: No active environment set for the current auth profile. Specify an environment via the `--environment` argument or use an auth profile with an active environment. Alternatively, you can use `pac org select` to set the active environment for the current auth profile.
+
+PS C:\Users\vmuser\.ssh> pac auth list
+Index Active Kind      Name User                                          Cloud  Type Environment Environment Url
+[1]   *      UNIVERSAL      Pranav1786340539884@nplicense.onmicrosoft.com Public User
+
+PS C:\Users\vmuser\.ssh>
