@@ -1,0 +1,222 @@
+PS C:\Users\vmuser\Documents\MPPTraining\EXL-AutoIntelligence> git checkout practise
+error: pathspec 'practise' did not match any file(s) known to git
+PS C:\Users\vmuser\Documents\MPPTraining\EXL-AutoIntelligence> git checkout practice
+Already on 'practice'
+Your branch is up to date with 'origin/practice'.
+PS C:\Users\vmuser\Documents\MPPTraining\EXL-AutoIntelligence> git pull
+info: please complete authentication in your browser...
+remote: Repository not found.
+fatal: repository 'https://github.com/NubeEra-MCO/EXL-AutoIntelligence.git/' not found
+PS C:\Users\vmuser\Documents\MPPTraining\EXL-AutoIntelligence> ssh-add c:\Users\vmuser\.ssh\Pranav.pem
+Error connecting to agent: No such file or directory
+PS C:\Users\vmuser\Documents\MPPTraining\EXL-AutoIntelligence> git pull                               
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 4 (delta 0), reused 4 (delta 0), pack-reused 0 (from 0)
+Unpacking objects: 100% (4/4), 385 bytes | 4.00 KiB/s, done.
+From https://github.com/NubeEra-MCO/EXL-AutoIntelligence
+   180397c..ffdd3f5  practice   -> origin/practice
+Updating 180397c..ffdd3f5
+Fast-forward
+ mujahed/Commands.txt | 3 +++
+ 1 file changed, 3 insertions(+)
+ create mode 100644 mujahed/Commands.txt
+PS C:\Users\vmuser\Documents\MPPTraining\EXL-AutoIntelligence> git push
+ *  History restored 
+
+PS C:\Users\vmuser\Documents\MPPTraining\EXL-AutoIntelligence> ssh-add -l
+2048 SHA256:/82w/7jY1APN/NsmSJBWf8xd0e6hxB1eb2nu2omqrWo C:\users\vmuser\.ssh\Pranav.pem (RSA)
+PS C:\Users\vmuser\Documents\MPPTraining\EXL-AutoIntelligence> ssh -T git@github.com
+The authenticity of host 'github.com (20.207.73.82)' can't be established.
+ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? Y
+Please type 'yes', 'no' or the fingerprint: yes
+Warning: Permanently added 'github.com' (ED25519) to the list of known hosts.
+Hi mujahed85! You've successfully authenticated, but GitHub does not provide shell access.
+PS C:\Users\vmuser\Documents\MPPTraining\EXL-AutoIntelligence> git add .
+PS C:\Users\vmuser\Documents\MPPTraining\EXL-AutoIntelligence> git commit -m "Pranav - Commt-1"
+Author identity unknown
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'vmuser@exlenv-yrbe6vha.(none)')
+PS C:\Users\vmuser\Documents\MPPTraining\EXL-AutoIntelligence> git config user.name Pranav   
+PS C:\Users\vmuser\Documents\MPPTraining\EXL-AutoIntelligence> git config user.name patelkrishnapatel
+PS C:\Users\vmuser\Documents\MPPTraining\EXL-AutoIntelligence> git config user.email patelpranav77@outlook.com
+PS C:\Users\vmuser\Documents\MPPTraining\EXL-AutoIntelligence> git commit -m "Pranav - Commt-1"               
+[practice c14bf51] Pranav - Commt-1
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 Pranav/Commant.txt
+ create mode 100644 Pranav/cmd.txt
+PS C:\Users\vmuser\Documents\MPPTraining\EXL-AutoIntelligence> git pull
+git@github.com: Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+PS C:\Users\vmuser\Documents\MPPTraining\EXL-AutoIntelligence> git config user.name mujahed85                 
+PS C:\Users\vmuser\Documents\MPPTraining\EXL-AutoIntelligence> git config user.email mujahed.trainer@gmail.com
+PS C:\Users\vmuser\Documents\MPPTraining\EXL-AutoIntelligence> git pull
+git@github.com: Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+PS C:\Users\vmuser\Documents\MPPTraining\EXL-AutoIntelligence> git commit -m "Pranav - Commt-1" mujahed85     
+error: pathspec 'mujahed85' did not match any file(s) known to git
+PS C:\Users\vmuser\Documents\MPPTraining\EXL-AutoIntelligence> git pull
+remote: Enumerating objects: 19, done.
+remote: Counting objects: 100% (19/19), done.
+remote: Compressing objects: 100% (8/8), done.
+remote: Total 18 (delta 6), reused 16 (delta 4), pack-reused 0 (from 0)
+Unpacking objects: 100% (18/18), 1.57 KiB | 5.00 KiB/s, done.
+From https://github.com/NubeEra-MCO/EXL-AutoIntelligence
+   ffdd3f5..0b3b4e8  practice   -> origin/practice
+Merge made by the 'ort' strategy.
+ Abc/command.txt        | 1 +
+ Ravi215673/Command.txt | 0
+ Sri/commands.txt       | 1 +
+ 3 files changed, 2 insertions(+)
+ create mode 100644 Abc/command.txt
+ create mode 100644 Ravi215673/Command.txt
+ create mode 100644 Sri/commands.txt
+PS C:\Users\vmuser\Documents\MPPTraining\EXL-AutoIntelligence> git push
+Enumerating objects: 8, done.
+Counting objects: 100% (8/8), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (6/6), 609 bytes | 87.00 KiB/s, done.
+Total 6 (delta 2), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (2/2), completed with 1 local object.
+To https://github.com/NubeEra-MCO/EXL-AutoIntelligence.git
+   0b3b4e8..eaa0377  practice -> practice
+PS C:\Users\vmuser\Documents\MPPTraining\EXL-AutoIntelligence> git pull
+remote: Enumerating objects: 133, done.
+remote: Counting objects: 100% (119/119), done.
+remote: Compressing objects: 100% (58/58), done.
+remote: Total 108 (delta 47), reused 85 (delta 27), pack-reused 0 (from 0)
+Receiving objects: 100% (108/108), 11.50 KiB | 120.00 KiB/s, done.
+Resolving deltas: 100% (47/47), done.
+From https://github.com/NubeEra-MCO/EXL-AutoIntelligence
+   eaa0377..f7ee81b  practice   -> origin/practice
+Updating eaa0377..f7ee81b
+Fast-forward
+ .vscode/settings.json       |  3 +++
+ Abhijeet/Command_Abhijeet   |  1 +
+ Devanshi22/Command.txt      |  1 +
+ Nitesh007/Command.txt       |  1 +
+ Pechi/command.txt           |  1 +
+ Ravi215673/Command.txt      |  1 +
+ Sandeep/Command.txt         |  1 +
+ Santosh11082026/newcmd.txt  |  0
+ Shiva/Command.txt           |  0
+ Sri/commands.txt            |  2 +-
+ Vaishnavi191919/command.txt |  1 +
+ VikasT/Command.txt          |  0
+ mujahed/Commands.txt        | 23 ++++++++++++++++++++++-
+ prince351330/command.txt    |  1 +
+ 14 files changed, 34 insertions(+), 2 deletions(-)
+ create mode 100644 .vscode/settings.json
+ create mode 100644 Abhijeet/Command_Abhijeet
+ create mode 100644 Devanshi22/Command.txt
+ create mode 100644 Nitesh007/Command.txt
+ create mode 100644 Pechi/command.txt
+ create mode 100644 Sandeep/Command.txt
+ create mode 100644 Santosh11082026/newcmd.txt
+ create mode 100644 Shiva/Command.txt
+ create mode 100644 Vaishnavi191919/command.txt
+ create mode 100644 VikasT/Command.txt
+ create mode 100644 prince351330/command.txt
+PS C:\Users\vmuser\Documents\MPPTraining\EXL-AutoIntelligence> git add .
+PS C:\Users\vmuser\Documents\MPPTraining\EXL-AutoIntelligence> git commit -m "Pranav Adding Commands"
+[practice aca1ca2] Pranav Adding Commands
+ 3 files changed, 48 insertions(+)
+ create mode 100644 Pranav/Commands.txt
+ delete mode 100644 Pranav/cmd.txt
+PS C:\Users\vmuser\Documents\MPPTraining\EXL-AutoIntelligence> git pull
+remote: Enumerating objects: 15, done.
+remote: Counting objects: 100% (15/15), done.
+remote: Compressing objects: 100% (5/5), done.
+remote: Total 10 (delta 4), reused 8 (delta 2), pack-reused 0 (from 0)
+Unpacking objects: 100% (10/10), 1.24 KiB | 8.00 KiB/s, done.
+From https://github.com/NubeEra-MCO/EXL-AutoIntelligence
+   f7ee81b..af51f79  practice   -> origin/practice
+Merge made by the 'ort' strategy.
+ Abhijeet/Command_Abhijeet |  2 +-
+ Sandeep/Command.txt       | 25 ++++++++++++++++++++++++-
+ 2 files changed, 25 insertions(+), 2 deletions(-)
+PS C:\Users\vmuser\Documents\MPPTraining\EXL-AutoIntelligence> git push
+remote: Invalid username or token. Password authentication is not supported for Git operations.
+fatal: Authentication failed for 'https://github.com/NubeEra-MCO/EXL-AutoIntelligence.git/'
+PS C:\Users\vmuser\Documents\MPPTraining\EXL-AutoIntelligence> git push
+remote: Invalid username or token. Password authentication is not supported for Git operations.
+fatal: Authentication failed for 'https://github.com/NubeEra-MCO/EXL-AutoIntelligence.git/'
+PS C:\Users\vmuser\Documents\MPPTraining\EXL-AutoIntelligence> git push
+remote: Invalid username or token. Password authentication is not supported for Git operations.
+fatal: Authentication failed for 'https://github.com/NubeEra-MCO/EXL-AutoIntelligence.git/'
+PS C:\Users\vmuser\Documents\MPPTraining\EXL-AutoIntelligence> git config core.sshCommand "ssh -i C:\\Users\\vmuser\\.ssh\\Pranav.pem -o IdentitiesOnly=yes" 
+PS C:\Users\vmuser\Documents\MPPTraining\EXL-AutoIntelligence> git pull
+remote: Enumerating objects: 45, done.
+remote: Counting objects: 100% (35/35), done.
+remote: Compressing objects: 100% (13/13), done.
+remote: Total 24 (delta 10), reused 21 (delta 7), pack-reused 0 (from 0)
+Unpacking objects: 100% (24/24), 2.94 KiB | 7.00 KiB/s, done.
+From https://github.com/NubeEra-MCO/EXL-AutoIntelligence
+   af51f79..555a1d6  practice   -> origin/practice
+Merge made by the 'ort' strategy.
+ Abhijeet/Command_Abhijeet   | 25 ++++++++++++++++++++++++-
+ Santosh11082026/Command.txt |  0
+ Sri/commands.txt            | 25 ++++++++++++++++++++++++-
+ prince351330/command.txt    |  3 ++-
+ 4 files changed, 50 insertions(+), 3 deletions(-)
+ create mode 100644 Santosh11082026/Command.txt
+PS C:\Users\vmuser\Documents\MPPTraining\EXL-AutoIntelligence> git pull
+Already up to date.
+PS C:\Users\vmuser\Documents\MPPTraining\EXL-AutoIntelligence> git push
+remote: Invalid username or token. Password authentication is not supported for Git operations.
+fatal: Authentication failed for 'https://github.com/NubeEra-MCO/EXL-AutoIntelligence.git/'
+PS C:\Users\vmuser\Documents\MPPTraining\EXL-AutoIntelligence> git add .
+PS C:\Users\vmuser\Documents\MPPTraining\EXL-AutoIntelligence> git commit -m "Pranav app"
+[practice e0e7745] Pranav app
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 Pranav/app.txt
+PS C:\Users\vmuser\Documents\MPPTraining\EXL-AutoIntelligence> git pull
+remote: Enumerating objects: 11, done.
+remote: Counting objects: 100% (11/11), done.
+remote: Compressing objects: 100% (1/1), done.
+remote: Total 8 (delta 5), reused 8 (delta 5), pack-reused 0 (from 0)
+Unpacking objects: 100% (8/8), 835 bytes | 6.00 KiB/s, done.
+From https://github.com/NubeEra-MCO/EXL-AutoIntelligence
+   555a1d6..cb1d3b0  practice   -> origin/practice
+Merge made by the 'ort' strategy.
+ Richa164289/Command.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 Richa164289/Command.txt
+PS C:\Users\vmuser\Documents\MPPTraining\EXL-AutoIntelligence> git pull
+Already up to date.
+PS C:\Users\vmuser\Documents\MPPTraining\EXL-AutoIntelligence> git push
+remote: Invalid username or token. Password authentication is not supported for Git operations.
+fatal: Authentication failed for 'https://github.com/NubeEra-MCO/EXL-AutoIntelligence.git/'
+PS C:\Users\vmuser\Documents\MPPTraining\EXL-AutoIntelligence> git pull                  
+Already up to date.
+PS C:\Users\vmuser\Documents\MPPTraining\EXL-AutoIntelligence> git push
+Enumerating objects: 21, done.
+Counting objects: 100% (18/18), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (13/13), done.
+Writing objects: 100% (13/13), 1.92 KiB | 196.00 KiB/s, done.
+Total 13 (delta 6), reused 1 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (6/6), completed with 3 local objects.
+To github.com:NubeEra-MCO/EXL-AutoIntelligence.git
+   cb1d3b0..1e9a46c  practice -> practice
+PS C:\Users\vmuser\Documents\MPPTraining\EXL-AutoIntelligence>

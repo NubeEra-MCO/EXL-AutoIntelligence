@@ -1,0 +1,101 @@
+ Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows                                                                                                                                                       PS C:\Windows\system32> Start-Service ssh-agent                                                                         Start-Service : Service 'OpenSSH Authentication Agent (ssh-agent)' cannot be started due to the following error:        Cannot start service ssh-agent on computer '.'.
+At line:1 char:1
++ Start-Service ssh-agent
++ ~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OpenError: (System.ServiceProcess.ServiceController:ServiceController) [Start-Service],      ServiceCommandException                                                                                                  + FullyQualifiedErrorId : CouldNotStartService,Microsoft.PowerShell.Commands.StartServiceCommand                                                                                                                                            PS C:\Windows\system32> Add-WindowsCapability -Online -Name OpenSSH.Client~~~~0.0.1.0
+
+Path          :
+Online        : True
+RestartNeeded : False
+
+
+
+PS C:\Windows\system32> Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0
+
+
+Path          :
+Online        : True
+RestartNeeded : False
+
+
+
+PS C:\Windows\system32> Start-Service sshd
+PS C:\Windows\system32> Start-Service sshd
+PS C:\Windows\system32> Set-Service -Name sshd -StartupType Automatic
+PS C:\Windows\system32> Get-NetFirewallRule -Name "OpenSSH-Server-In-TCP" -ErrorAction SilentlyContinue | Enable-NetFirewallRule
+PS C:\Windows\system32> Get-WindowsCapability -Online | Where-Object Name -like 'OpenSSH*'
+
+
+Name  : OpenSSH.Client~~~~0.0.1.0
+State : Installed
+
+Name  : OpenSSH.Server~~~~0.0.1.0
+State : Installed
+
+
+
+PS C:\Windows\system32> Get-Service ssh-agent
+
+Status   Name               DisplayName
+------   ----               -----------
+Stopped  ssh-agent          OpenSSH Authentication Agent
+
+
+PS C:\Windows\system32> Get-Service sshd
+
+Status   Name               DisplayName
+------   ----               -----------
+Running  sshd               OpenSSH SSH Server
+
+
+PS C:\Windows\system32> Start-Service ssh-agent
+Start-Service : Service 'OpenSSH Authentication Agent (ssh-agent)' cannot be started due to the following error:
+Cannot start service ssh-agent on computer '.'.
+At line:1 char:1
++ Start-Service ssh-agent
++ ~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OpenError: (System.ServiceProcess.ServiceController:ServiceController) [Start-Service],
+   ServiceCommandException
+    + FullyQualifiedErrorId : CouldNotStartService,Microsoft.PowerShell.Commands.StartServiceCommand
+
+PS C:\Windows\system32> Set-Service -Name ssh-agent -StartupType Manual
+PS C:\Windows\system32> Start-Service ssh-agent
+PS C:\Windows\system32>  Get-Service ssh-agent
+
+Status   Name               DisplayName
+------   ----               -----------
+Running  ssh-agent          OpenSSH Authentication Agent
+
+
+PS C:\Windows\system32> ssh add C:\Users\vmuser\.ssh\Pranav.pem
+ssh: Could not resolve hostname add: No such host is known.
+PS C:\Windows\system32> cd C:\Users\vmuser\.ssh
+PS C:\Users\vmuser\.ssh> ssh add Pranav.pem
+ssh: Could not resolve hostname add: No such host is known.
+PS C:\Users\vmuser\.ssh> dir
+
+
+    Directory: C:\Users\vmuser\.ssh
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----         8/11/2026   5:04 AM              0 M.txt
+-a----         8/11/2026   5:05 AM           1700 Pranav.pem
+
+
+PS C:\Users\vmuser\.ssh> ssh-add .\Pranav.pem
+Identity added: .\Pranav.pem (.\Pranav.pem)
+PS C:\Users\vmuser\.ssh> ssh-add C:\users\vmuser\.ssh\Pranav.pem
+Identity added: C:\users\vmuser\.ssh\Pranav.pem (C:\users\vmuser\.ssh\Pranav.pem)
+PS C:\Users\vmuser\.ssh> ssh-add -l
+2048 SHA256:/82w/7jY1APN/NsmSJBWf8xd0e6hxB1eb2nu2omqrWo C:\users\vmuser\.ssh\Pranav.pem (RSA)
+PS C:\Users\vmuser\.ssh>
+
+
+
+
+
+
+
+
