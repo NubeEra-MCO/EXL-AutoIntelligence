@@ -1,0 +1,14 @@
+{
+  "version": "1.0",
+  "appId": "5ce0ccad-6dab-4fb0-a84b-a11d3601bab0",
+  "appDisplayName": "DemoMVP",
+  "region": "prod",
+  "environmentId": "812ba18d-de2b-e98b-a84e-8e63d7884e05",
+  "description": " ",
+  "buildPath": "./dist",
+  "buildEntryPoint": "index.html",
+  "localAppUrl": "http://localhost:3000",
+  "logoPath": "Default",
+  "connectionReferences": {},
+  "databaseReferences": {}
+}
