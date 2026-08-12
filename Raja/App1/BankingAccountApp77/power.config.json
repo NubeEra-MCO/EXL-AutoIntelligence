@@ -1,0 +1,14 @@
+{
+  "version": "1.0",
+  "appId": "70e670b2-9a7c-4ae7-b922-d78ffe6c760e",
+  "appDisplayName": "BankingAccountApp77",
+  "region": "prod",
+  "environmentId": "1236892e-7b9f-eed8-b2f6-594bf73cdb0e",
+  "description": " ",
+  "buildPath": "./dist",
+  "buildEntryPoint": "index.html",
+  "localAppUrl": "http://localhost:3000",
+  "logoPath": "Default",
+  "connectionReferences": {},
+  "databaseReferences": {}
+}
