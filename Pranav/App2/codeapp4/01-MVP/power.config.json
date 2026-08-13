@@ -1,0 +1,14 @@
+{
+  "version": "1.0",
+  "appId": "b5533931-2660-4259-b0e0-864a76380f4e",
+  "appDisplayName": "01-MVP",
+  "region": "prod",
+  "environmentId": "812ba18d-de2b-e98b-a84e-8e63d7884e05",
+  "description": " ",
+  "buildPath": "./dist",
+  "buildEntryPoint": "index.html",
+  "localAppUrl": "http://localhost:3000",
+  "logoPath": "Default",
+  "connectionReferences": {},
+  "databaseReferences": {}
+}
