@@ -1,0 +1,28 @@
+{
+  "version": "1.0",
+  "appId": "db25e5fc-4b52-4ff3-8740-5feb810f4989",
+  "appDisplayName": "EXL Employee Department App",
+  "region": "prod",
+  "environmentId": "1236892e-7b9f-eed8-b2f6-594bf73cdb0e",
+  "description": "React Vite app for employee and department CRUD",
+  "buildPath": "dist",
+  "buildEntryPoint": "index.html",
+  "localAppUrl": "http://localhost:5173",
+  "logoPath": "Default",
+  "connectionReferences": {},
+  "databaseReferences": {
+    "default.cds": {
+      "dataSources": {
+        "department": {
+          "entitySetName": "exlpf_departments",
+          "logicalName": "exlpf_department"
+        },
+        "employee": {
+          "entitySetName": "exlpf_employees",
+          "logicalName": "exlpf_employee"
+        }
+      },
+      "environmentVariableName": ""
+    }
+  }
+}

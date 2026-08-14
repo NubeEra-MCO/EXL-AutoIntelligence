@@ -1,0 +1,26 @@
+{
+  "version": "1.0",
+  "appId": null,
+  "appDisplayName": "EmployeesCodeApp1",
+  "region": "prod",
+  "appType": "CodeApp",
+  "environmentId": "131db11c-cc80-ef85-b63e-04a653c08dd2",
+  "description": " ",
+  "buildPath": "./dist",
+  "buildEntryPoint": "index.html",
+  "localAppUrl": "http://localhost:3000",
+  "logoPath": "Default",
+  "connectionReferences": {},
+  "databaseReferences": {
+    "default.cds": {
+      "dataSources": {
+        "employee": {
+          "entitySetName": "crf9c_employees",
+          "logicalName": "crf9c_employee",
+          "isHidden": false
+        }
+      },
+      "environmentVariableName": ""
+    }
+  }
+}
