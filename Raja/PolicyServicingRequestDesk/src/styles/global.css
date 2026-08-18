@@ -1,0 +1,88 @@
+/* ============================================================
+   GLOBAL CSS - Policy Servicing Request Desk
+   ============================================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Oxygen', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.35);
+}
+
+/* Animations */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes bounce {
+  0%, 80%, 100% { transform: scale(0); }
+  40% { transform: scale(1.0); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-16px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Page transitions */
+.page-enter {
+  animation: fadeIn 0.2s ease-out;
+}
+
+/* Print styles */
+@media print {
+  .no-print { display: none !important; }
+}
+
+/* Focus visible for keyboard navigation */
+:focus-visible {
+  outline: 2px solid #0E4DA4;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* High contrast support */
+@media (forced-colors: active) {
+  .fui-Badge { border: 1px solid ButtonText; }
+}
+
+/* Mobile responsive */
+@media (max-width: 640px) {
+  .hide-mobile { display: none !important; }
+}

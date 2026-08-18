@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Dataverse Table: psrd_servicerequest (Service Request) -->
+<Entity xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name LocalizedName="Service Request" OriginalName="psrd_servicerequest">psrd_servicerequest</Name>
+  <EntityInfo>
+    <entity Name="psrd_servicerequest">
+      <LocalizedNames>
+        <LocalizedName description="Service Request" languagecode="1033" />
+      </LocalizedNames>
+      <LocalizedCollectionNames>
+        <LocalizedCollectionName description="Service Requests" languagecode="1033" />
+      </LocalizedCollectionNames>
+      <Descriptions>
+        <Description description="Policy servicing request record" languagecode="1033" />
+      </Descriptions>
+      <attributes>
+        <attribute PhysicalName="psrd_servicerequestid">
+          <Type>primarykey</Type>
+          <Name>psrd_servicerequestid</Name>
+          <LogicalName>psrd_servicerequestid</LogicalName>
+          <RequiredLevel>systemrequired</RequiredLevel>
+          <LocalizedNames>
+            <LocalizedName description="Service Request" languagecode="1033" />
+          </LocalizedNames>
+        </attribute>
+        <!-- Auto-generated request number e.g. SR20240847123 -->
+        <attribute PhysicalName="psrd_requestnumber">
+          <Type>nvarchar</Type>
+          <Name>psrd_requestnumber</Name>
+          <LogicalName>psrd_requestnumber</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <MaxLength>30</MaxLength>
+          <LocalizedNames>
+            <LocalizedName description="Request Number" languagecode="1033" />
+          </LocalizedNames>
+        </attribute>
+        <attribute PhysicalName="psrd_requesttypecode">
+          <Type>nvarchar</Type>
+          <Name>psrd_requesttypecode</Name>
+          <LogicalName>psrd_requesttypecode</LogicalName>
+          <RequiredLevel>applicationrequired</RequiredLevel>
+          <MaxLength>30</MaxLength>
+          <LocalizedNames>
+            <LocalizedName description="Request Type Code" languagecode="1033" />
+          </LocalizedNames>
+        </attribute>
+        <attribute PhysicalName="psrd_policynumber">
+          <Type>nvarchar</Type>
+          <Name>psrd_policynumber</Name>
+          <LogicalName>psrd_policynumber</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <MaxLength>50</MaxLength>
+          <LocalizedNames>
+            <LocalizedName description="Policy Number" languagecode="1033" />
+          </LocalizedNames>
+        </attribute>
+        <attribute PhysicalName="psrd_customername">
+          <Type>nvarchar</Type>
+          <Name>psrd_customername</Name>
+          <LogicalName>psrd_customername</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <MaxLength>200</MaxLength>
+          <LocalizedNames>
+            <LocalizedName description="Customer Name" languagecode="1033" />
+          </LocalizedNames>
+        </attribute>
+        <attribute PhysicalName="psrd_status">
+          <Type>picklist</Type>
+          <Name>psrd_status</Name>
+          <LogicalName>psrd_status</LogicalName>
+          <RequiredLevel>applicationrequired</RequiredLevel>
+          <LocalizedNames>
+            <LocalizedName description="Status" languagecode="1033" />
+          </LocalizedNames>
+          <OptionSetName>psrd_requeststatus</OptionSetName>
+        </attribute>
+        <attribute PhysicalName="psrd_priority">
+          <Type>picklist</Type>
+          <Name>psrd_priority</Name>
+          <LogicalName>psrd_priority</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <LocalizedNames>
+            <LocalizedName description="Priority" languagecode="1033" />
+          </LocalizedNames>
+          <OptionSetName>psrd_priority</OptionSetName>
+        </attribute>
+        <attribute PhysicalName="psrd_submittedon">
+          <Type>datetime</Type>
+          <Name>psrd_submittedon</Name>
+          <LogicalName>psrd_submittedon</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <Format>DateAndTime</Format>
+          <LocalizedNames>
+            <LocalizedName description="Submitted On" languagecode="1033" />
+          </LocalizedNames>
+        </attribute>
+        <attribute PhysicalName="psrd_sladeadline">
+          <Type>datetime</Type>
+          <Name>psrd_sladeadline</Name>
+          <LogicalName>psrd_sladeadline</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <Format>DateAndTime</Format>
+          <LocalizedNames>
+            <LocalizedName description="SLA Deadline" languagecode="1033" />
+          </LocalizedNames>
+        </attribute>
+        <attribute PhysicalName="psrd_slabreached">
+          <Type>bool</Type>
+          <Name>psrd_slabreached</Name>
+          <LogicalName>psrd_slabreached</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <LocalizedNames>
+            <LocalizedName description="SLA Breached" languagecode="1033" />
+          </LocalizedNames>
+        </attribute>
+        <attribute PhysicalName="psrd_requestdata">
+          <Type>memo</Type>
+          <Name>psrd_requestdata</Name>
+          <LogicalName>psrd_requestdata</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <MaxLength>1048576</MaxLength>
+          <LocalizedNames>
+            <LocalizedName description="Request Data (JSON)" languagecode="1033" />
+          </LocalizedNames>
+        </attribute>
+        <attribute PhysicalName="psrd_oldvalues">
+          <Type>memo</Type>
+          <Name>psrd_oldvalues</Name>
+          <LogicalName>psrd_oldvalues</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <MaxLength>1048576</MaxLength>
+          <LocalizedNames>
+            <LocalizedName description="Old Values (JSON)" languagecode="1033" />
+          </LocalizedNames>
+        </attribute>
+        <attribute PhysicalName="psrd_newvalues">
+          <Type>memo</Type>
+          <Name>psrd_newvalues</Name>
+          <LogicalName>psrd_newvalues</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <MaxLength>1048576</MaxLength>
+          <LocalizedNames>
+            <LocalizedName description="New Values (JSON)" languagecode="1033" />
+          </LocalizedNames>
+        </attribute>
+        <attribute PhysicalName="psrd_source">
+          <Type>picklist</Type>
+          <Name>psrd_source</Name>
+          <LogicalName>psrd_source</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <LocalizedNames>
+            <LocalizedName description="Source" languagecode="1033" />
+          </LocalizedNames>
+          <OptionSetName>psrd_requestsource</OptionSetName>
+        </attribute>
+        <attribute PhysicalName="psrd_completedon">
+          <Type>datetime</Type>
+          <Name>psrd_completedon</Name>
+          <LogicalName>psrd_completedon</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <Format>DateAndTime</Format>
+          <LocalizedNames>
+            <LocalizedName description="Completed On" languagecode="1033" />
+          </LocalizedNames>
+        </attribute>
+        <attribute PhysicalName="psrd_internalnotes">
+          <Type>memo</Type>
+          <Name>psrd_internalnotes</Name>
+          <LogicalName>psrd_internalnotes</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <MaxLength>1048576</MaxLength>
+          <LocalizedNames>
+            <LocalizedName description="Internal Notes" languagecode="1033" />
+          </LocalizedNames>
+        </attribute>
+        <attribute PhysicalName="psrd_currentapprovallevel">
+          <Type>integer</Type>
+          <Name>psrd_currentapprovallevel</Name>
+          <LogicalName>psrd_currentapprovallevel</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <LocalizedNames>
+            <LocalizedName description="Current Approval Level" languagecode="1033" />
+          </LocalizedNames>
+        </attribute>
+        <attribute PhysicalName="psrd_totalapprovallevels">
+          <Type>integer</Type>
+          <Name>psrd_totalapprovallevels</Name>
+          <LogicalName>psrd_totalapprovallevels</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <LocalizedNames>
+            <LocalizedName description="Total Approval Levels" languagecode="1033" />
+          </LocalizedNames>
+        </attribute>
+        <attribute PhysicalName="psrd_correlationid">
+          <Type>nvarchar</Type>
+          <Name>psrd_correlationid</Name>
+          <LogicalName>psrd_correlationid</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <MaxLength>50</MaxLength>
+          <LocalizedNames>
+            <LocalizedName description="Correlation ID" languagecode="1033" />
+          </LocalizedNames>
+        </attribute>
+      </attributes>
+    </entity>
+  </EntityInfo>
+</Entity>

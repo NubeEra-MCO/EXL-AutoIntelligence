@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<optionsets>
+  <!-- Policy Status -->
+  <optionset Name="psrd_policystatus" localizedName="Policy Status">
+    <OptionSetType>picklist</OptionSetType>
+    <IsGlobal>1</IsGlobal>
+    <LocalizedNames>
+      <LocalizedName description="Policy Status" languagecode="1033" />
+    </LocalizedNames>
+    <options>
+      <option value="100000000"><Labels><Label description="Active" languagecode="1033" /></Labels></option>
+      <option value="100000001"><Labels><Label description="Lapsed" languagecode="1033" /></Labels></option>
+      <option value="100000002"><Labels><Label description="Surrendered" languagecode="1033" /></Labels></option>
+      <option value="100000003"><Labels><Label description="Matured" languagecode="1033" /></Labels></option>
+      <option value="100000004"><Labels><Label description="PaidUp" languagecode="1033" /></Labels></option>
+      <option value="100000005"><Labels><Label description="Cancelled" languagecode="1033" /></Labels></option>
+    </options>
+  </optionset>
+
+  <!-- Policy Type -->
+  <optionset Name="psrd_policytype" localizedName="Policy Type">
+    <OptionSetType>picklist</OptionSetType>
+    <IsGlobal>1</IsGlobal>
+    <LocalizedNames>
+      <LocalizedName description="Policy Type" languagecode="1033" />
+    </LocalizedNames>
+    <options>
+      <option value="100000000"><Labels><Label description="Life" languagecode="1033" /></Labels></option>
+      <option value="100000001"><Labels><Label description="Health" languagecode="1033" /></Labels></option>
+      <option value="100000002"><Labels><Label description="Motor" languagecode="1033" /></Labels></option>
+      <option value="100000003"><Labels><Label description="Home" languagecode="1033" /></Labels></option>
+      <option value="100000004"><Labels><Label description="Travel" languagecode="1033" /></Labels></option>
+      <option value="100000005"><Labels><Label description="Term" languagecode="1033" /></Labels></option>
+      <option value="100000006"><Labels><Label description="ULIP" languagecode="1033" /></Labels></option>
+      <option value="100000007"><Labels><Label description="Endowment" languagecode="1033" /></Labels></option>
+    </options>
+  </optionset>
+
+  <!-- Premium Mode -->
+  <optionset Name="psrd_premiummode" localizedName="Premium Mode">
+    <OptionSetType>picklist</OptionSetType>
+    <IsGlobal>1</IsGlobal>
+    <LocalizedNames>
+      <LocalizedName description="Premium Mode" languagecode="1033" />
+    </LocalizedNames>
+    <options>
+      <option value="100000000"><Labels><Label description="Monthly" languagecode="1033" /></Labels></option>
+      <option value="100000001"><Labels><Label description="Quarterly" languagecode="1033" /></Labels></option>
+      <option value="100000002"><Labels><Label description="Half-Yearly" languagecode="1033" /></Labels></option>
+      <option value="100000003"><Labels><Label description="Yearly" languagecode="1033" /></Labels></option>
+      <option value="100000004"><Labels><Label description="Single Premium" languagecode="1033" /></Labels></option>
+    </options>
+  </optionset>
+
+  <!-- Service Request Status -->
+  <optionset Name="psrd_requeststatus" localizedName="Request Status">
+    <OptionSetType>picklist</OptionSetType>
+    <IsGlobal>1</IsGlobal>
+    <LocalizedNames>
+      <LocalizedName description="Request Status" languagecode="1033" />
+    </LocalizedNames>
+    <options>
+      <option value="100000000"><Labels><Label description="Draft" languagecode="1033" /></Labels></option>
+      <option value="100000001"><Labels><Label description="Submitted" languagecode="1033" /></Labels></option>
+      <option value="100000002"><Labels><Label description="Validation Pending" languagecode="1033" /></Labels></option>
+      <option value="100000003"><Labels><Label description="Eligibility Check Passed" languagecode="1033" /></Labels></option>
+      <option value="100000004"><Labels><Label description="Eligibility Check Failed" languagecode="1033" /></Labels></option>
+      <option value="100000005"><Labels><Label description="Pending Approval" languagecode="1033" /></Labels></option>
+      <option value="100000006"><Labels><Label description="Approved" languagecode="1033" /></Labels></option>
+      <option value="100000007"><Labels><Label description="Rejected" languagecode="1033" /></Labels></option>
+      <option value="100000008"><Labels><Label description="In Progress" languagecode="1033" /></Labels></option>
+      <option value="100000009"><Labels><Label description="Completed" languagecode="1033" /></Labels></option>
+      <option value="100000010"><Labels><Label description="Cancelled" languagecode="1033" /></Labels></option>
+      <option value="100000011"><Labels><Label description="Escalated" languagecode="1033" /></Labels></option>
+      <option value="100000012"><Labels><Label description="On Hold" languagecode="1033" /></Labels></option>
+    </options>
+  </optionset>
+
+  <!-- Priority -->
+  <optionset Name="psrd_priority" localizedName="Priority">
+    <OptionSetType>picklist</OptionSetType>
+    <IsGlobal>1</IsGlobal>
+    <LocalizedNames>
+      <LocalizedName description="Priority" languagecode="1033" />
+    </LocalizedNames>
+    <options>
+      <option value="100000000"><Labels><Label description="Low" languagecode="1033" /></Labels></option>
+      <option value="100000001"><Labels><Label description="Medium" languagecode="1033" /></Labels></option>
+      <option value="100000002"><Labels><Label description="High" languagecode="1033" /></Labels></option>
+      <option value="100000003"><Labels><Label description="Critical" languagecode="1033" /></Labels></option>
+    </options>
+  </optionset>
+
+  <!-- Request Source -->
+  <optionset Name="psrd_requestsource" localizedName="Request Source">
+    <OptionSetType>picklist</OptionSetType>
+    <IsGlobal>1</IsGlobal>
+    <LocalizedNames>
+      <LocalizedName description="Request Source" languagecode="1033" />
+    </LocalizedNames>
+    <options>
+      <option value="100000000"><Labels><Label description="Portal" languagecode="1033" /></Labels></option>
+      <option value="100000001"><Labels><Label description="Copilot Agent" languagecode="1033" /></Labels></option>
+      <option value="100000002"><Labels><Label description="API" languagecode="1033" /></Labels></option>
+      <option value="100000003"><Labels><Label description="Bulk" languagecode="1033" /></Labels></option>
+      <option value="100000004"><Labels><Label description="Operations" languagecode="1033" /></Labels></option>
+    </options>
+  </optionset>
+</optionsets>

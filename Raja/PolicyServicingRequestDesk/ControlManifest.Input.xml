@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest>
+  <control namespace="PSRD" constructor="PolicyServicingRequestDesk" version="1.0.0"
+    display-name-key="PolicyServicingRequestDesk_DisplayName"
+    description-key="PolicyServicingRequestDesk_Desc"
+    control-type="virtual"
+    is-name-based-id-enabled="false">
+    <external-service-usage enabled="false" />
+    <type-group name="numbers">
+      <type>Whole.None</type>
+      <type>Currency</type>
+      <type>FP</type>
+      <type>Decimal</type>
+    </type-group>
+    <property name="environmentUrl" display-name-key="EnvironmentUrl" description-key="EnvironmentUrl_Desc"
+      of-type="SingleLine.Text" usage="input" required="true" />
+    <property name="userId" display-name-key="UserId" description-key="UserId_Desc"
+      of-type="SingleLine.Text" usage="input" required="false" />
+    <property name="userRoles" display-name-key="UserRoles" description-key="UserRoles_Desc"
+      of-type="SingleLine.Text" usage="input" required="false" />
+    <property name="themeMode" display-name-key="ThemeMode" description-key="ThemeMode_Desc"
+      of-type="SingleLine.Text" usage="input" required="false" default-value="light" />
+    <property name="enableAI" display-name-key="EnableAI" description-key="EnableAI_Desc"
+      of-type="TwoOptions" usage="input" required="false" />
+    <resources>
+      <code path="out/controls/PolicyServicingRequestDesk/index.js" order="1" />
+      <css path="out/controls/PolicyServicingRequestDesk/index.css" order="1" />
+    </resources>
+    <feature-usage>
+      <uses-feature name="Device.captureAudio" required="false" />
+      <uses-feature name="Device.captureImage" required="false" />
+      <uses-feature name="Device.captureVideo" required="false" />
+      <uses-feature name="Device.getBarcodeValue" required="false" />
+      <uses-feature name="Device.getCurrentPosition" required="false" />
+      <uses-feature name="Device.pickFile" required="false" />
+    </feature-usage>
+  </control>
+</manifest>

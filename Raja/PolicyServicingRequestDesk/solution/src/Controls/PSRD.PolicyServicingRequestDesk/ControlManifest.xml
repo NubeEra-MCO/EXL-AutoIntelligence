@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PowerPCFControl SchemaVersion="0.1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ControlTemplateItems>
+    <ControlTemplateItem UniqueId="PSRD.PolicyServicingRequestDesk">
+      <Descriptions>
+        <Description default="true" content="Policy Servicing Request Desk" />
+      </Descriptions>
+      <Versions>
+        <Version version="1.0.0.0" path="PolicyServicingRequestDesk" order="1.0.0" />
+      </Versions>
+    </ControlTemplateItem>
+  </ControlTemplateItems>
+</PowerPCFControl>

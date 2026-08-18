@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Dataverse Table: psrd_requestcatalog (Request Catalog) -->
+<Entity xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name LocalizedName="Request Catalog" OriginalName="psrd_requestcatalog">psrd_requestcatalog</Name>
+  <EntityInfo>
+    <entity Name="psrd_requestcatalog">
+      <LocalizedNames>
+        <LocalizedName description="Request Catalog" languagecode="1033" />
+      </LocalizedNames>
+      <LocalizedCollectionNames>
+        <LocalizedCollectionName description="Request Catalogs" languagecode="1033" />
+      </LocalizedCollectionNames>
+      <attributes>
+        <attribute PhysicalName="psrd_requestcatalogid">
+          <Type>primarykey</Type>
+          <Name>psrd_requestcatalogid</Name>
+          <LogicalName>psrd_requestcatalogid</LogicalName>
+          <RequiredLevel>systemrequired</RequiredLevel>
+          <LocalizedNames>
+            <LocalizedName description="Request Catalog" languagecode="1033" />
+          </LocalizedNames>
+        </attribute>
+        <attribute PhysicalName="psrd_requestcode">
+          <Type>nvarchar</Type>
+          <Name>psrd_requestcode</Name>
+          <LogicalName>psrd_requestcode</LogicalName>
+          <RequiredLevel>applicationrequired</RequiredLevel>
+          <MaxLength>30</MaxLength>
+          <LocalizedNames>
+            <LocalizedName description="Request Code" languagecode="1033" />
+          </LocalizedNames>
+        </attribute>
+        <attribute PhysicalName="psrd_requestname">
+          <Type>nvarchar</Type>
+          <Name>psrd_requestname</Name>
+          <LogicalName>psrd_requestname</LogicalName>
+          <RequiredLevel>applicationrequired</RequiredLevel>
+          <MaxLength>200</MaxLength>
+          <LocalizedNames>
+            <LocalizedName description="Request Name" languagecode="1033" />
+          </LocalizedNames>
+        </attribute>
+        <attribute PhysicalName="psrd_description">
+          <Type>memo</Type>
+          <Name>psrd_description</Name>
+          <LogicalName>psrd_description</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <MaxLength>2000</MaxLength>
+          <LocalizedNames>
+            <LocalizedName description="Description" languagecode="1033" />
+          </LocalizedNames>
+        </attribute>
+        <attribute PhysicalName="psrd_category">
+          <Type>nvarchar</Type>
+          <Name>psrd_category</Name>
+          <LogicalName>psrd_category</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <MaxLength>100</MaxLength>
+          <LocalizedNames>
+            <LocalizedName description="Category" languagecode="1033" />
+          </LocalizedNames>
+        </attribute>
+        <attribute PhysicalName="psrd_slahours">
+          <Type>integer</Type>
+          <Name>psrd_slahours</Name>
+          <LogicalName>psrd_slahours</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <LocalizedNames>
+            <LocalizedName description="SLA Hours" languagecode="1033" />
+          </LocalizedNames>
+        </attribute>
+        <attribute PhysicalName="psrd_requiresapproval">
+          <Type>bool</Type>
+          <Name>psrd_requiresapproval</Name>
+          <LogicalName>psrd_requiresapproval</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <LocalizedNames>
+            <LocalizedName description="Requires Approval" languagecode="1033" />
+          </LocalizedNames>
+        </attribute>
+        <attribute PhysicalName="psrd_approvallevels">
+          <Type>integer</Type>
+          <Name>psrd_approvallevels</Name>
+          <LogicalName>psrd_approvallevels</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <LocalizedNames>
+            <LocalizedName description="Approval Levels" languagecode="1033" />
+          </LocalizedNames>
+        </attribute>
+        <attribute PhysicalName="psrd_isactive">
+          <Type>bool</Type>
+          <Name>psrd_isactive</Name>
+          <LogicalName>psrd_isactive</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <LocalizedNames>
+            <LocalizedName description="Is Active" languagecode="1033" />
+          </LocalizedNames>
+        </attribute>
+        <attribute PhysicalName="psrd_displayorder">
+          <Type>integer</Type>
+          <Name>psrd_displayorder</Name>
+          <LogicalName>psrd_displayorder</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <LocalizedNames>
+            <LocalizedName description="Display Order" languagecode="1033" />
+          </LocalizedNames>
+        </attribute>
+        <attribute PhysicalName="psrd_formschema">
+          <Type>memo</Type>
+          <Name>psrd_formschema</Name>
+          <LogicalName>psrd_formschema</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <MaxLength>1048576</MaxLength>
+          <LocalizedNames>
+            <LocalizedName description="Form Schema (JSON)" languagecode="1033" />
+          </LocalizedNames>
+        </attribute>
+        <attribute PhysicalName="psrd_eligibilityrulesjson">
+          <Type>memo</Type>
+          <Name>psrd_eligibilityrulesjson</Name>
+          <LogicalName>psrd_eligibilityrulesjson</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <MaxLength>1048576</MaxLength>
+          <LocalizedNames>
+            <LocalizedName description="Eligibility Rules (JSON)" languagecode="1033" />
+          </LocalizedNames>
+        </attribute>
+        <attribute PhysicalName="psrd_requireddocsjson">
+          <Type>memo</Type>
+          <Name>psrd_requireddocsjson</Name>
+          <LogicalName>psrd_requireddocsjson</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <MaxLength>1048576</MaxLength>
+          <LocalizedNames>
+            <LocalizedName description="Required Documents (JSON)" languagecode="1033" />
+          </LocalizedNames>
+        </attribute>
+        <attribute PhysicalName="psrd_icon">
+          <Type>nvarchar</Type>
+          <Name>psrd_icon</Name>
+          <LogicalName>psrd_icon</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <MaxLength>50</MaxLength>
+          <LocalizedNames>
+            <LocalizedName description="Icon" languagecode="1033" />
+          </LocalizedNames>
+        </attribute>
+      </attributes>
+    </entity>
+  </EntityInfo>
+</Entity>

@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.PowerApps.MSBuild.Solution/1.0.2">
+  <PropertyGroup>
+    <SolutionRootPath>src</SolutionRootPath>
+    <SolutionOutputPath>$(MSBuildProjectDirectory)\out</SolutionOutputPath>
+    <SolutionUniqueName>PolicyServicingRequestDeskSolution</SolutionUniqueName>
+    <SolutionVersion>1.0.0.0</SolutionVersion>
+    <SolutionPackageType>Unmanaged</SolutionPackageType>
+  </PropertyGroup>
+  <ItemGroup>
+    <ExcludeDirectories Include="$(SolutionRootPath)\**\.git\**" />
+  </ItemGroup>
+</Project>

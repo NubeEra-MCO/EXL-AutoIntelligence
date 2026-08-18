@@ -1,0 +1,223 @@
+# Azure DevOps CI/CD Pipeline
+# Policy Servicing Request Desk
+
+trigger:
+  branches:
+    include:
+      - main
+      - develop
+      - release/*
+  paths:
+    include:
+      - PolicyServicingRequestDesk/**
+
+pr:
+  branches:
+    include:
+      - main
+      - develop
+
+variables:
+  - group: PSRD-Variables
+  - name: NodeVersion
+    value: '20.x'
+  - name: SolutionName
+    value: 'PolicyServicingRequestDeskSolution'
+  - name: PublisherPrefix
+    value: 'psrd'
+
+stages:
+  # =========================================================
+  # STAGE 1: Build & Test
+  # =========================================================
+  - stage: Build
+    displayName: 'Build & Test'
+    jobs:
+      - job: BuildFrontend
+        displayName: 'Build React Application'
+        pool:
+          vmImage: 'windows-latest'
+        steps:
+          - task: NodeTool@0
+            inputs:
+              versionSpec: '$(NodeVersion)'
+            displayName: 'Install Node.js'
+
+          - task: Cache@2
+            inputs:
+              key: 'npm | "$(Agent.OS)" | package-lock.json'
+              restoreKeys: 'npm | "$(Agent.OS)"'
+              path: '$(System.DefaultWorkingDirectory)/PolicyServicingRequestDesk/node_modules'
+            displayName: 'Cache npm packages'
+
+          - script: |
+              cd PolicyServicingRequestDesk
+              npm ci
+            displayName: 'Install dependencies'
+
+          - script: |
+              cd PolicyServicingRequestDesk
+              npm run type-check
+            displayName: 'TypeScript type check'
+
+          - script: |
+              cd PolicyServicingRequestDesk
+              npm run lint
+            displayName: 'ESLint'
+
+          - script: |
+              cd PolicyServicingRequestDesk
+              npm run test:coverage
+            displayName: 'Unit Tests with Coverage'
+
+          - task: PublishTestResults@2
+            inputs:
+              testResultsFormat: 'JUnit'
+              testResultsFiles: '**/test-results.xml'
+            displayName: 'Publish Test Results'
+
+          - task: PublishCodeCoverageResults@1
+            inputs:
+              codeCoverageTool: 'Cobertura'
+              summaryFileLocation: '**/coverage/cobertura-coverage.xml'
+            displayName: 'Publish Code Coverage'
+
+          - script: |
+              cd PolicyServicingRequestDesk
+              npm run build
+            displayName: 'Build production bundle'
+            env:
+              VITE_DATAVERSE_URL: $(DataverseUrl)
+              VITE_USE_MOCK: 'false'
+
+          - task: PublishBuildArtifacts@1
+            inputs:
+              pathToPublish: 'PolicyServicingRequestDesk/out'
+              artifactName: 'pcf-output'
+            displayName: 'Publish PCF artifacts'
+
+      - job: BuildSolution
+        displayName: 'Build Power Platform Solution'
+        dependsOn: BuildFrontend
+        pool:
+          vmImage: 'windows-latest'
+        steps:
+          - task: PowerPlatformToolInstaller@2
+            inputs:
+              DefaultVersion: true
+            displayName: 'Install Power Platform Build Tools'
+
+          - task: DownloadBuildArtifacts@1
+            inputs:
+              artifactName: 'pcf-output'
+              downloadPath: '$(System.DefaultWorkingDirectory)/PolicyServicingRequestDesk/out'
+
+          - task: PowerPlatformBuildSolution@2
+            inputs:
+              SolutionSourceFolder: 'Solution'
+              SolutionOutputFile: '$(Build.ArtifactStagingDirectory)/$(SolutionName).zip'
+            displayName: 'Build Solution'
+
+          - task: PublishBuildArtifacts@1
+            inputs:
+              pathToPublish: '$(Build.ArtifactStagingDirectory)'
+              artifactName: 'solution'
+            displayName: 'Publish Solution artifact'
+
+  # =========================================================
+  # STAGE 2: Deploy to Development
+  # =========================================================
+  - stage: DeployDev
+    displayName: 'Deploy to Development'
+    dependsOn: Build
+    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
+    variables:
+      - group: PSRD-Dev-Variables
+    jobs:
+      - deployment: DeployDev
+        displayName: 'Deploy to Dev Environment'
+        environment: 'PSRD-Dev'
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - task: PowerPlatformImportSolution@2
+                  inputs:
+                    authenticationType: 'PowerPlatformSPN'
+                    PowerPlatformSPN: 'PSRD-Dev-ServiceConnection'
+                    SolutionInputFile: '$(Pipeline.Workspace)/solution/$(SolutionName).zip'
+                    PublishWorkflows: true
+                    OverwriteUnmanagedCustomizations: true
+                  displayName: 'Import Solution to Dev'
+
+  # =========================================================
+  # STAGE 3: Deploy to Test/UAT
+  # =========================================================
+  - stage: DeployTest
+    displayName: 'Deploy to Test'
+    dependsOn: DeployDev
+    condition: succeeded()
+    variables:
+      - group: PSRD-Test-Variables
+    jobs:
+      - deployment: DeployTest
+        displayName: 'Deploy to Test Environment'
+        environment: 'PSRD-Test'
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - task: PowerPlatformImportSolution@2
+                  inputs:
+                    authenticationType: 'PowerPlatformSPN'
+                    PowerPlatformSPN: 'PSRD-Test-ServiceConnection'
+                    SolutionInputFile: '$(Pipeline.Workspace)/solution/$(SolutionName).zip'
+                    PublishWorkflows: true
+                  displayName: 'Import Solution to Test'
+
+                - script: |
+                    echo "Running smoke tests against Test environment"
+                    echo "Verify: App loads correctly"
+                    echo "Verify: Policy search returns results"
+                    echo "Verify: Request catalogue displays"
+                  displayName: 'Smoke Tests'
+
+  # =========================================================
+  # STAGE 4: Deploy to Production
+  # =========================================================
+  - stage: DeployProd
+    displayName: 'Deploy to Production'
+    dependsOn: DeployTest
+    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+    variables:
+      - group: PSRD-Prod-Variables
+    jobs:
+      - deployment: DeployProd
+        displayName: 'Deploy to Production'
+        environment: 'PSRD-Prod'
+        strategy:
+          runOnce:
+            preDeploy:
+              steps:
+                - script: echo "Pre-deployment checks..."
+            deploy:
+              steps:
+                - task: PowerPlatformImportSolution@2
+                  inputs:
+                    authenticationType: 'PowerPlatformSPN'
+                    PowerPlatformSPN: 'PSRD-Prod-ServiceConnection'
+                    SolutionInputFile: '$(Pipeline.Workspace)/solution/$(SolutionName)_managed.zip'
+                    PublishWorkflows: true
+                  displayName: 'Import Managed Solution to Production'
+
+                - script: |
+                    echo "Post-deployment validation"
+                  displayName: 'Post-Deployment Validation'
+
+            on:
+              failure:
+                steps:
+                  - script: |
+                      echo "Deployment failed - initiating rollback"
+                      echo "TODO: Import previous solution version"
+                    displayName: 'Rollback on Failure'

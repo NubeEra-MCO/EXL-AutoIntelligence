@@ -1,0 +1,93 @@
+<ImportExportXml version="9.2.24.10249" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SolutionManifest>
+    <UniqueName>PolicyServicingRequestDeskSolution</UniqueName>
+    <LocalizedNames>
+      <LocalizedName description="Policy Servicing Request Desk" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="Enterprise Policy Servicing Request Desk - Insurance domain PCF component with Dataverse integration." languagecode="1033" />
+    </Descriptions>
+    <Version>1.0.0.0</Version>
+    <Managed>0</Managed>
+    <Publisher>
+      <UniqueName>psrd</UniqueName>
+      <LocalizedNames>
+        <LocalizedName description="PSRD Publisher" languagecode="1033" />
+      </LocalizedNames>
+      <Descriptions />
+      <EMailAddress />
+      <SupportingWebsiteUrl />
+      <CustomizationPrefix>psrd</CustomizationPrefix>
+      <CustomizationOptionValuePrefix>10000</CustomizationOptionValuePrefix>
+      <Addresses>
+        <Address>
+          <AddressNumber>1</AddressNumber>
+          <AddressTypeCode>1</AddressTypeCode>
+          <City xsi:nil="true" />
+          <County xsi:nil="true" />
+          <Fax xsi:nil="true" />
+          <FreightTermsCode xsi:nil="true" />
+          <ImportSequenceNumber xsi:nil="true" />
+          <Latitude xsi:nil="true" />
+          <Line1 xsi:nil="true" />
+          <Line2 xsi:nil="true" />
+          <Line3 xsi:nil="true" />
+          <Longitude xsi:nil="true" />
+          <Name xsi:nil="true" />
+          <PostalCode xsi:nil="true" />
+          <PostOfficeBox xsi:nil="true" />
+          <PrimaryContactName xsi:nil="true" />
+          <ShippingMethodCode xsi:nil="true" />
+          <StateOrProvince xsi:nil="true" />
+          <Telephone1 xsi:nil="true" />
+          <Telephone2 xsi:nil="true" />
+          <Telephone3 xsi:nil="true" />
+          <TimeZoneCode xsi:nil="true" />
+          <UPSZone xsi:nil="true" />
+          <UTCOffset xsi:nil="true" />
+          <Country xsi:nil="true" />
+        </Address>
+        <Address>
+          <AddressNumber>2</AddressNumber>
+          <AddressTypeCode>1</AddressTypeCode>
+          <City xsi:nil="true" />
+          <County xsi:nil="true" />
+          <Fax xsi:nil="true" />
+          <FreightTermsCode xsi:nil="true" />
+          <ImportSequenceNumber xsi:nil="true" />
+          <Latitude xsi:nil="true" />
+          <Line1 xsi:nil="true" />
+          <Line2 xsi:nil="true" />
+          <Line3 xsi:nil="true" />
+          <Longitude xsi:nil="true" />
+          <Name xsi:nil="true" />
+          <PostalCode xsi:nil="true" />
+          <PostOfficeBox xsi:nil="true" />
+          <PrimaryContactName xsi:nil="true" />
+          <ShippingMethodCode xsi:nil="true" />
+          <StateOrProvince xsi:nil="true" />
+          <Telephone1 xsi:nil="true" />
+          <Telephone2 xsi:nil="true" />
+          <Telephone3 xsi:nil="true" />
+          <TimeZoneCode xsi:nil="true" />
+          <UPSZone xsi:nil="true" />
+          <UTCOffset xsi:nil="true" />
+          <Country xsi:nil="true" />
+        </Address>
+      </Addresses>
+    </Publisher>
+    <RootComponents>
+      <RootComponent type="66" schemaName="PSRD.PolicyServicingRequestDesk" behavior="0" />
+      <RootComponent type="1" schemaName="psrd_policy" behavior="0" />
+      <RootComponent type="1" schemaName="psrd_customer" behavior="0" />
+      <RootComponent type="1" schemaName="psrd_servicerequest" behavior="0" />
+      <RootComponent type="1" schemaName="psrd_requestcatalog" behavior="0" />
+      <RootComponent type="1" schemaName="psrd_requeststatushistory" behavior="0" />
+      <RootComponent type="1" schemaName="psrd_approval" behavior="0" />
+      <RootComponent type="1" schemaName="psrd_eligibilityrule" behavior="0" />
+      <RootComponent type="1" schemaName="psrd_requireddocument" behavior="0" />
+      <RootComponent type="1" schemaName="psrd_auditlog" behavior="0" />
+    </RootComponents>
+    <MissingDependencies />
+  </SolutionManifest>
+</ImportExportXml>

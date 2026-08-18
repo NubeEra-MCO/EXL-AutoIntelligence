@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Dataverse Table: psrd_policy (Policy) -->
+<Entity xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name LocalizedName="Policy" OriginalName="psrd_policy">psrd_policy</Name>
+  <EntityInfo>
+    <entity Name="psrd_policy">
+      <LocalizedNames>
+        <LocalizedName description="Policy" languagecode="1033" />
+      </LocalizedNames>
+      <LocalizedCollectionNames>
+        <LocalizedCollectionName description="Policies" languagecode="1033" />
+      </LocalizedCollectionNames>
+      <Descriptions>
+        <Description description="Insurance policy record" languagecode="1033" />
+      </Descriptions>
+      <attributes>
+        <!-- Primary Key -->
+        <attribute PhysicalName="psrd_policyid">
+          <Type>primarykey</Type>
+          <Name>psrd_policyid</Name>
+          <LogicalName>psrd_policyid</LogicalName>
+          <RequiredLevel>systemrequired</RequiredLevel>
+          <LocalizedNames>
+            <LocalizedName description="Policy" languagecode="1033" />
+          </LocalizedNames>
+        </attribute>
+        <!-- Policy Number - unique alternate key -->
+        <attribute PhysicalName="psrd_policynumber">
+          <Type>nvarchar</Type>
+          <Name>psrd_policynumber</Name>
+          <LogicalName>psrd_policynumber</LogicalName>
+          <RequiredLevel>applicationrequired</RequiredLevel>
+          <MaxLength>50</MaxLength>
+          <LocalizedNames>
+            <LocalizedName description="Policy Number" languagecode="1033" />
+          </LocalizedNames>
+        </attribute>
+        <attribute PhysicalName="psrd_productcode">
+          <Type>nvarchar</Type>
+          <Name>psrd_productcode</Name>
+          <LogicalName>psrd_productcode</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <MaxLength>50</MaxLength>
+          <LocalizedNames>
+            <LocalizedName description="Product Code" languagecode="1033" />
+          </LocalizedNames>
+        </attribute>
+        <attribute PhysicalName="psrd_productname">
+          <Type>nvarchar</Type>
+          <Name>psrd_productname</Name>
+          <LogicalName>psrd_productname</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <MaxLength>200</MaxLength>
+          <LocalizedNames>
+            <LocalizedName description="Product Name" languagecode="1033" />
+          </LocalizedNames>
+        </attribute>
+        <!-- Policy Type picklist -->
+        <attribute PhysicalName="psrd_policytype">
+          <Type>picklist</Type>
+          <Name>psrd_policytype</Name>
+          <LogicalName>psrd_policytype</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <LocalizedNames>
+            <LocalizedName description="Policy Type" languagecode="1033" />
+          </LocalizedNames>
+          <OptionSetName>psrd_policytype</OptionSetName>
+        </attribute>
+        <!-- Policy Status picklist -->
+        <attribute PhysicalName="psrd_status">
+          <Type>picklist</Type>
+          <Name>psrd_status</Name>
+          <LogicalName>psrd_status</LogicalName>
+          <RequiredLevel>applicationrequired</RequiredLevel>
+          <LocalizedNames>
+            <LocalizedName description="Status" languagecode="1033" />
+          </LocalizedNames>
+          <OptionSetName>psrd_policystatus</OptionSetName>
+        </attribute>
+        <attribute PhysicalName="psrd_issuedate">
+          <Type>datetime</Type>
+          <Name>psrd_issuedate</Name>
+          <LogicalName>psrd_issuedate</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <Format>DateOnly</Format>
+          <LocalizedNames>
+            <LocalizedName description="Issue Date" languagecode="1033" />
+          </LocalizedNames>
+        </attribute>
+        <attribute PhysicalName="psrd_maturitydate">
+          <Type>datetime</Type>
+          <Name>psrd_maturitydate</Name>
+          <LogicalName>psrd_maturitydate</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <Format>DateOnly</Format>
+          <LocalizedNames>
+            <LocalizedName description="Maturity Date" languagecode="1033" />
+          </LocalizedNames>
+        </attribute>
+        <attribute PhysicalName="psrd_annualpremium">
+          <Type>money</Type>
+          <Name>psrd_annualpremium</Name>
+          <LogicalName>psrd_annualpremium</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <LocalizedNames>
+            <LocalizedName description="Annual Premium" languagecode="1033" />
+          </LocalizedNames>
+        </attribute>
+        <attribute PhysicalName="psrd_premiummode">
+          <Type>picklist</Type>
+          <Name>psrd_premiummode</Name>
+          <LogicalName>psrd_premiummode</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <LocalizedNames>
+            <LocalizedName description="Premium Mode" languagecode="1033" />
+          </LocalizedNames>
+          <OptionSetName>psrd_premiummode</OptionSetName>
+        </attribute>
+        <attribute PhysicalName="psrd_sumassured">
+          <Type>money</Type>
+          <Name>psrd_sumassured</Name>
+          <LogicalName>psrd_sumassured</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <LocalizedNames>
+            <LocalizedName description="Sum Assured" languagecode="1033" />
+          </LocalizedNames>
+        </attribute>
+        <attribute PhysicalName="psrd_nextpremiumduedate">
+          <Type>datetime</Type>
+          <Name>psrd_nextpremiumduedate</Name>
+          <LogicalName>psrd_nextpremiumduedate</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <Format>DateOnly</Format>
+          <LocalizedNames>
+            <LocalizedName description="Next Premium Due Date" languagecode="1033" />
+          </LocalizedNames>
+        </attribute>
+        <attribute PhysicalName="psrd_openrequests">
+          <Type>integer</Type>
+          <Name>psrd_openrequests</Name>
+          <LogicalName>psrd_openrequests</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <LocalizedNames>
+            <LocalizedName description="Open Requests" languagecode="1033" />
+          </LocalizedNames>
+        </attribute>
+        <attribute PhysicalName="psrd_branchcode">
+          <Type>nvarchar</Type>
+          <Name>psrd_branchcode</Name>
+          <LogicalName>psrd_branchcode</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <MaxLength>20</MaxLength>
+          <LocalizedNames>
+            <LocalizedName description="Branch Code" languagecode="1033" />
+          </LocalizedNames>
+        </attribute>
+        <attribute PhysicalName="psrd_agentcode">
+          <Type>nvarchar</Type>
+          <Name>psrd_agentcode</Name>
+          <LogicalName>psrd_agentcode</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <MaxLength>20</MaxLength>
+          <LocalizedNames>
+            <LocalizedName description="Agent Code" languagecode="1033" />
+          </LocalizedNames>
+        </attribute>
+        <attribute PhysicalName="psrd_autodebit">
+          <Type>bool</Type>
+          <Name>psrd_autodebit</Name>
+          <LogicalName>psrd_autodebit</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <LocalizedNames>
+            <LocalizedName description="Auto Debit" languagecode="1033" />
+          </LocalizedNames>
+        </attribute>
+      </attributes>
+    </entity>
+  </EntityInfo>
+</Entity>
