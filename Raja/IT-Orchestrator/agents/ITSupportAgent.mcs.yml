@@ -1,0 +1,11 @@
+mcs.metadata:
+  componentName: IT Support Agent
+  description: Handles IT support questions, troubleshooting, and solutions using the IT support knowledge base.
+kind: TaskDialog
+modelDisplayName: IT Support Agent
+modelDescription: Handles IT support questions, troubleshooting, and solutions using the IT support knowledge base.
+action:
+  kind: InvokeConnectedAgentTaskAction
+  botSchemaName: raj_ITSupportAgent
+  historyType:
+    kind: ConversationHistory

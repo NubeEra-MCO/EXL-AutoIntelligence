@@ -1,0 +1,382 @@
+{
+  "requestTypes": [
+    {
+      "id": "address-change",
+      "name": "Address Change",
+      "displayName": "Change Address",
+      "icon": "📍",
+      "description": "Update the registered address on the policy",
+      "category": "Administrative",
+      "priority": "Medium",
+      "requiredFields": [
+        "newAddress",
+        "verificationId"
+      ],
+      "optionalFields": [
+        "addressType",
+        "effectiveDate",
+        "notes"
+      ],
+      "eligibilityRules": [
+        {
+          "field": "policyStatus",
+          "condition": "notIn",
+          "values": ["Suspended", "Lapsed"],
+          "message": "Policy must be Active or Inactive (not Suspended or Lapsed)"
+        }
+      ],
+      "requiredApproval": false,
+      "sla": {
+        "days": 2,
+        "businessHoursOnly": true
+      },
+      "automationRules": [
+        {
+          "action": "updateField",
+          "field": "billingAddress",
+          "source": "newAddress"
+        }
+      ],
+      "notification": {
+        "onCreation": true,
+        "onApproval": false,
+        "onCompletion": true
+      }
+    },
+    {
+      "id": "nominee-change",
+      "name": "Nominee Change",
+      "displayName": "Change Nominee",
+      "icon": "👤",
+      "description": "Update the registered nominee for the policy",
+      "category": "Administrative",
+      "priority": "High",
+      "requiredFields": [
+        "nomineeName",
+        "nomineeRelationship",
+        "nomineeIdProof"
+      ],
+      "optionalFields": [
+        "nomineeAge",
+        "nomineePhone",
+        "nomineeEmail",
+        "notes"
+      ],
+      "eligibilityRules": [
+        {
+          "field": "policyStatus",
+          "condition": "equals",
+          "values": ["Active"],
+          "message": "Policy must be Active"
+        },
+        {
+          "field": "outstandingClaims",
+          "condition": "equals",
+          "values": [false],
+          "message": "No outstanding claims on the policy"
+        }
+      ],
+      "requiredApproval": true,
+      "sla": {
+        "days": 3,
+        "businessHoursOnly": true
+      },
+      "automationRules": [
+        {
+          "action": "updateField",
+          "field": "registeredNominee",
+          "source": "nomineeName"
+        },
+        {
+          "action": "flagForCompliance",
+          "message": "Nominee change requires compliance review"
+        }
+      ],
+      "notification": {
+        "onCreation": true,
+        "onApproval": true,
+        "onCompletion": true
+      }
+    },
+    {
+      "id": "premium-mode-change",
+      "name": "Premium Mode Change",
+      "displayName": "Change Payment Frequency",
+      "icon": "💰",
+      "description": "Switch between Monthly, Quarterly, or Annual premium payments",
+      "category": "Billing",
+      "priority": "Medium",
+      "requiredFields": [
+        "newPremiumMode",
+        "effectiveDate"
+      ],
+      "optionalFields": [
+        "reason",
+        "notes"
+      ],
+      "eligibilityRules": [
+        {
+          "field": "policyStatus",
+          "condition": "equals",
+          "values": ["Active"],
+          "message": "Policy must be Active"
+        },
+        {
+          "field": "premiumMode",
+          "condition": "equals",
+          "values": ["Annual"],
+          "message": "Policy must be in Annual mode to change to Monthly/Quarterly"
+        },
+        {
+          "field": "paymentDefaults12Months",
+          "condition": "lessThan",
+          "values": [1],
+          "message": "No payment failures in the last 12 months"
+        }
+      ],
+      "requiredApproval": true,
+      "sla": {
+        "days": 5,
+        "businessHoursOnly": true
+      },
+      "automationRules": [
+        {
+          "action": "callFlow",
+          "flowName": "UpdateBillingSystem",
+          "reason": "Sync with billing backend"
+        },
+        {
+          "action": "updateField",
+          "field": "premiumMode",
+          "source": "newPremiumMode"
+        }
+      ],
+      "notification": {
+        "onCreation": true,
+        "onApproval": true,
+        "onCompletion": true
+      }
+    },
+    {
+      "id": "info-update",
+      "name": "Information Update",
+      "displayName": "Update Policy Information",
+      "icon": "📋",
+      "description": "Update other policy information (email, phone, coverage details, etc.)",
+      "category": "Administrative",
+      "priority": "Low",
+      "requiredFields": [
+        "fieldToUpdate",
+        "newValue",
+        "verificationId"
+      ],
+      "optionalFields": [
+        "oldValue",
+        "reason",
+        "notes"
+      ],
+      "eligibilityRules": [
+        {
+          "field": "policyStatus",
+          "condition": "notIn",
+          "values": ["Lapsed"],
+          "message": "Policy must not be Lapsed"
+        }
+      ],
+      "requiredApproval": false,
+      "sla": {
+        "days": 1,
+        "businessHoursOnly": false
+      },
+      "automationRules": [
+        {
+          "action": "updateField",
+          "field": "dynamicField",
+          "source": "newValue"
+        }
+      ],
+      "notification": {
+        "onCreation": true,
+        "onApproval": false,
+        "onCompletion": true
+      }
+    }
+  ],
+  "requestStatuses": [
+    {
+      "id": "draft",
+      "name": "Draft",
+      "displayName": "Draft",
+      "description": "Request being prepared, not yet submitted",
+      "color": "#E3E3E3",
+      "icon": "📝",
+      "isInitial": true,
+      "isFinal": false,
+      "allowsEdit": true
+    },
+    {
+      "id": "submitted",
+      "name": "Submitted",
+      "displayName": "Submitted",
+      "description": "Request submitted for processing",
+      "color": "#4472C4",
+      "icon": "📤",
+      "isInitial": false,
+      "isFinal": false,
+      "allowsEdit": false
+    },
+    {
+      "id": "eligible",
+      "name": "Eligible",
+      "displayName": "Eligible",
+      "description": "Request passed eligibility check",
+      "color": "#70AD47",
+      "icon": "✓",
+      "isInitial": false,
+      "isFinal": false,
+      "allowsEdit": false
+    },
+    {
+      "id": "rejected",
+      "name": "Rejected",
+      "displayName": "Rejected",
+      "description": "Request does not meet eligibility criteria",
+      "color": "#FF0000",
+      "icon": "✗",
+      "isInitial": false,
+      "isFinal": true,
+      "allowsEdit": false
+    },
+    {
+      "id": "pending-approval",
+      "name": "PendingApproval",
+      "displayName": "Pending Approval",
+      "description": "Eligible request awaiting manager approval",
+      "color": "#FFB900",
+      "icon": "⏳",
+      "isInitial": false,
+      "isFinal": false,
+      "allowsEdit": false
+    },
+    {
+      "id": "approved",
+      "name": "Approved",
+      "displayName": "Approved",
+      "description": "Request approved and being processed",
+      "color": "#107C10",
+      "icon": "👍",
+      "isInitial": false,
+      "isFinal": false,
+      "allowsEdit": false
+    },
+    {
+      "id": "completed",
+      "name": "Completed",
+      "displayName": "Completed",
+      "description": "Request processed and completed successfully",
+      "color": "#00B050",
+      "icon": "✓✓",
+      "isInitial": false,
+      "isFinal": true,
+      "allowsEdit": false
+    },
+    {
+      "id": "on-hold",
+      "name": "OnHold",
+      "displayName": "On Hold",
+      "description": "Request paused awaiting additional information",
+      "color": "#FFC000",
+      "icon": "⏸",
+      "isInitial": false,
+      "isFinal": false,
+      "allowsEdit": false
+    },
+    {
+      "id": "cancelled",
+      "name": "Cancelled",
+      "displayName": "Cancelled",
+      "description": "Request cancelled by customer or admin",
+      "color": "#999999",
+      "icon": "⊗",
+      "isInitial": false,
+      "isFinal": true,
+      "allowsEdit": false
+    }
+  ],
+  "policyStatuses": [
+    {
+      "id": "active",
+      "name": "Active",
+      "displayName": "Active",
+      "color": "#00B050"
+    },
+    {
+      "id": "inactive",
+      "name": "Inactive",
+      "displayName": "Inactive",
+      "color": "#4472C4"
+    },
+    {
+      "id": "suspended",
+      "name": "Suspended",
+      "displayName": "Suspended",
+      "color": "#FFB900"
+    },
+    {
+      "id": "lapsed",
+      "name": "Lapsed",
+      "displayName": "Lapsed",
+      "color": "#FF0000"
+    }
+  ],
+  "premiumModes": [
+    {
+      "id": "monthly",
+      "name": "Monthly",
+      "displayName": "Monthly",
+      "description": "Premium paid monthly"
+    },
+    {
+      "id": "quarterly",
+      "name": "Quarterly",
+      "displayName": "Quarterly",
+      "description": "Premium paid every 3 months"
+    },
+    {
+      "id": "annual",
+      "name": "Annual",
+      "displayName": "Annual",
+      "description": "Premium paid annually"
+    }
+  ],
+  "priorities": [
+    {
+      "id": "low",
+      "name": "Low",
+      "displayName": "Low",
+      "value": 1,
+      "color": "#70AD47"
+    },
+    {
+      "id": "medium",
+      "name": "Medium",
+      "displayName": "Medium",
+      "value": 2,
+      "color": "#FFB900"
+    },
+    {
+      "id": "high",
+      "name": "High",
+      "displayName": "High",
+      "value": 3,
+      "color": "#FF8C00"
+    },
+    {
+      "id": "urgent",
+      "name": "Urgent",
+      "displayName": "Urgent",
+      "value": 4,
+      "color": "#FF0000"
+    }
+  ]
+}

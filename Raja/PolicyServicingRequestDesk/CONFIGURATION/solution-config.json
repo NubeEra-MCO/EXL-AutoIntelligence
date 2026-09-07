@@ -1,0 +1,115 @@
+{
+  "solution": {
+    "name": "PolicyServicingRequestDesk",
+    "displayName": "Policy Servicing Request Desk",
+    "description": "Insurance policy servicing solution with request management, eligibility checks, and agent support",
+    "version": "1.0.0.0",
+    "publisher": {
+      "name": "InsuranceTeam",
+      "prefix": "ins",
+      "url": "https://company.com"
+    },
+    "environment": "InsuranceDemo",
+    "configuration": {
+      "language": "English",
+      "timezone": "UTC",
+      "currency": "USD"
+    }
+  },
+  "components": {
+    "tables": [
+      {
+        "name": "ins_policy",
+        "displayName": "Policy",
+        "pluralName": "Policies",
+        "description": "Insurance policy records",
+        "isManaged": false,
+        "ownershipType": "UserOwned"
+      },
+      {
+        "name": "ins_request",
+        "displayName": "Request",
+        "pluralName": "Requests",
+        "description": "Policy servicing requests",
+        "isManaged": false,
+        "ownershipType": "UserOwned"
+      },
+      {
+        "name": "ins_statushistory",
+        "displayName": "Status History",
+        "pluralName": "Status History",
+        "description": "Request status change history and tracking",
+        "isManaged": false,
+        "ownershipType": "UserOwned"
+      },
+      {
+        "name": "ins_auditlog",
+        "displayName": "Audit Log",
+        "pluralName": "Audit Logs",
+        "description": "Audit trail for all policy and request changes",
+        "isManaged": false,
+        "ownershipType": "UserOwned"
+      }
+    ],
+    "canvasApps": [
+      {
+        "name": "PolicyRequestDesk",
+        "displayName": "Policy Request Desk",
+        "description": "Main application for creating and tracking policy servicing requests"
+      }
+    ],
+    "cloudFlows": [
+      {
+        "name": "CreateRequestFlow",
+        "displayName": "Create Request with Eligibility Check",
+        "type": "cloud",
+        "category": "business"
+      },
+      {
+        "name": "EligibilityValidationFlow",
+        "displayName": "Eligibility Validation",
+        "type": "cloud",
+        "category": "business"
+      },
+      {
+        "name": "StatusUpdateFlow",
+        "displayName": "Status Update & Notification",
+        "type": "cloud",
+        "category": "business"
+      },
+      {
+        "name": "AuditLoggingFlow",
+        "displayName": "Audit Logging",
+        "type": "cloud",
+        "category": "business"
+      }
+    ],
+    "copilotAgents": [
+      {
+        "name": "PolicyServiceAgent",
+        "displayName": "Policy Service Agent",
+        "description": "AI agent for policy servicing requests and status inquiries"
+      }
+    ]
+  },
+  "features": {
+    "requestCreation": true,
+    "eligibilityCheck": true,
+    "statusTracking": true,
+    "auditLogging": true,
+    "emailNotifications": true,
+    "copilotIntegration": true,
+    "approvalWorkflow": true
+  },
+  "deployment": {
+    "requiresApproval": false,
+    "requiresConfiguration": true,
+    "estimatedInstallTime": "30 minutes",
+    "dependencies": [
+      "Dataverse",
+      "Power Apps",
+      "Power Automate",
+      "Copilot Studio"
+    ]
+  }
+}

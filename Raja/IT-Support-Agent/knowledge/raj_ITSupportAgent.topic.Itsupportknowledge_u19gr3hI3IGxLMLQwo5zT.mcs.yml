@@ -1,0 +1,7 @@
+mcs.metadata:
+  componentName: Itsupportknowledge
+  description: "This knowledge source answers questions found in the following Dataverse items: Itsupportknowledge"
+kind: KnowledgeSourceConfiguration
+source:
+  kind: DataverseStructuredSearchSource
+  skillConfiguration: Itsupportknowledge_G24GJxYKn2AqCk5XASFq3

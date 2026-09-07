@@ -1,223 +1,335 @@
-# Quick Start Guide - Policy Servicing Request Desk
+# Quick Start Guide - Get Running in 30 Minutes
 
-## 5-Minute Setup
-
-### 1. Install Dependencies
-```bash
-npm install
-```
-**Time: 3 minutes** (first run)  
-**Output:** 618 packages installed
-
-### 2. Start Development Server
-```bash
-npm run dev
-```
-**Output:** 
-```
-VITE v5.4.21  ready in 1234 ms
-
-➜  Local:   http://localhost:3000/
-➜  press h to show help
-```
-
-### 3. Open in Browser
-Visit **http://localhost:3000** and you should see:
-- Dashboard with KPI cards
-- Policy search functionality
-- Request creation wizard
-- All features working with mock data
-
-**✅ You're live in development!**
+Fast-track setup for Policy Servicing Request Desk MVP. Follow this for rapid deployment.
 
 ---
 
-## Common Commands
+## Pre-Requisites (5 minutes)
 
-| Command | Purpose | Time |
-|---------|---------|------|
-| `npm run dev` | Start dev server (hot reload) | 5s |
-| `npm run build` | Build production bundle | 40s |
-| `npm run type-check` | Verify TypeScript | 10s |
-| `npm run lint` | Check code quality | 15s |
-| `npm run lint --fix` | Auto-fix code formatting | 15s |
-| `npm test` | Run test suite | 20s |
+✅ **Required Software:**
+- Power Platform CLI installed: `pac --version`
+- PowerShell 5.1+: `$PSVersionTable.PSVersion`
+- Browser (Chrome, Edge, or Firefox)
+
+✅ **Account Requirements:**
+- Microsoft 365 account with Power Platform license
+- Power Platform Administrator role
+- Admin access to Office 365 (for email)
 
 ---
 
-## Project Structure Overview
+## Step 1: Authentication (5 minutes)
 
-```
-PolicyServicingRequestDesk/
-├── src/
-│   ├── pages/              # 12 modules (Dashboard, Policy Search, etc)
-│   ├── components/         # Reusable UI components
-│   ├── services/           # API & business logic
-│   ├── store/              # Global state (Zustand)
-│   ├── types/              # TypeScript type definitions
-│   ├── theme/              # Design tokens & styling
-│   ├── utils/              # Helpers & formatters
-│   ├── App.tsx             # Root component
-│   └── main.tsx            # Vite entry point
-├── docs/                   # Documentation
-│   ├── DEVELOPMENT_GUIDE.md
-│   ├── DEPLOYMENT_GUIDE.md
-│   ├── TESTING_GUIDE.md
-│   └── ARCHITECTURE.md
-├── devops/                 # CI/CD pipeline
-├── dataverse-schema/       # Data model documentation
-├── power-automate/         # Workflow automation
-├── copilot-studio/         # AI agent design
-├── package.json            # Dependencies
-├── tsconfig.json           # TypeScript config
-├── vite.config.ts          # Build config
-└── .eslintrc.json          # Linting rules
+Open PowerShell and run:
+
+```powershell
+# Navigate to deployment folder
+cd C:\Users\vmuser\Desktop\PolicyServicingRequestDesk\DEPLOYMENT
+
+# Authenticate (browser will open for login)
+pac auth create --url https://admin.powerplatform.com
+
+# Verify authentication worked
+pac admin list
 ```
 
----
-
-## Features Available in Dev Mode
-
-### ✅ Complete UI Modules (12 Pages)
-1. **Dashboard** - KPI metrics, trends, quick actions
-2. **Policy Search** - Multi-criteria search, detail view
-3. **Request Catalogue** - Browse 16+ request types
-4. **Request Creation** - 6-step wizard with validation
-5. **Request Tracking** - Status, timeline, SLA tracking
-6. **Operations Workbench** - Queue mgmt, agent metrics
-7. **AI Copilot Agent** - Chat with eligibility engine
-8. **Audit Logs** - 7-year retention with filters
-9. **Notifications** - Email/SMS/in-app channels
-10. **Administration** - User & system config
-11. **Knowledge Base** - FAQ search with RAG
-12. **Reports** - Analytics & dashboards
-
-### ✅ Mock Data
-- 50+ mock policies with full attributes
-- 25+ mock service requests in various statuses
-- 16+ request types and catalogs
-- Realistic dates, currencies, and status flows
-
-### ✅ UI Features
-- Responsive design (desktop, tablet, mobile)
-- Dark/light theme toggle
-- Fluent UI v9 components
-- Type-safe React with strict TypeScript
-- Global state management
-- Optimized API caching with React Query
+**Expected Output:**
+You'll see list of your current Power Platform environments.
 
 ---
 
-## Next Steps: Connecting to Dataverse
+## Step 2: Create Environment (10 minutes)
 
-### For Production Deployment
-1. **Create Dataverse Environment**
-   - Power Platform Admin Center
-   - Create new environment (https://admin.powerplatform.microsoft.com)
+```powershell
+# Create development environment
+pac admin create `
+  --name "InsuranceDemo" `
+  --region "unitedstates" `
+  --type Sandbox `
+  --currency USD `
+  --language 1033
 
-2. **Update .env.local**
-   ```bash
-   VITE_DATAVERSE_URL=https://yourorg.crm.dynamics.com
-   VITE_USE_MOCK=false
-   ```
+# Wait 5-10 minutes for environment to be provisioned
+# Check status with:
+pac admin list
+```
 
-3. **Deploy PCF Component**
-   - Follow: [docs/DEPLOYMENT_GUIDE.md](docs/DEPLOYMENT_GUIDE.md)
-   - Uses Power Platform CLI (pac)
-
-4. **Set up Flows & Copilot**
-   - Power Automate flows: [power-automate/FLOWS.md](power-automate/FLOWS.md)
-   - Copilot agent: [copilot-studio/AGENT_DESIGN.md](copilot-studio/AGENT_DESIGN.md)
+**Expected Output:**
+Environment appears in list with status "Ready"
 
 ---
 
-## Testing Your Changes
+## Step 3: Create Solution (5 minutes)
 
-```bash
-# Type checking (required before commit)
-npm run type-check
+```powershell
+# Set active environment
+pac auth select --environment InsuranceDemo
 
-# ESLint verification (code quality)
-npm run lint --fix
+# Create solution directory
+mkdir C:\Users\vmuser\Desktop\PolicyServicingRequestDesk\SOLUTION\PolicyServicingRequestDesk
+cd C:\Users\vmuser\Desktop\PolicyServicingRequestDesk\SOLUTION\PolicyServicingRequestDesk
 
-# Run test suite
-npm test
+# Initialize solution
+pac solution create `
+  --publisher-name "InsuranceTeam" `
+  --publisher-prefix "ins"
+```
 
-# Full build (production bundle)
-npm run build
+**Expected Output:**
+cdsproj file created in directory, ready for components.
+
+---
+
+## Step 4: Add Components via Power Apps UI (20 minutes)
+
+### 4a. Create Dataverse Tables (10 min)
+
+1. Go to: https://make.powerapps.com
+2. Environment: Select **InsuranceDemo**
+3. Solutions → Select **PolicyServicingRequestDesk**
+4. New → Table → Create from blank
+
+**Create 4 Tables** (with columns from CONFIGURATION/dataverse-schema.md):
+
+| Table | Columns | Time |
+|---|---|---|
+| **ins_policy** | Policy#, Customer, Status, Premium, Address, Nominee | 3 min |
+| **ins_request** | Request#, Policy(Link), Type, Status, Details, IsEligible | 3 min |
+| **ins_statushistory** | Status#, Request(Link), OldStatus, NewStatus, ChangedBy, Date | 2 min |
+| **ins_auditlog** | Audit#, Action, OldValue, NewValue, ModifiedBy, Date | 2 min |
+
+**Quick Column Setup Tips:**
+- Hover over column type icons for quick help
+- Required fields: Bold in schema
+- Use "Lookup" for links between tables
+- Save each table to solution immediately
+
+### 4b. Create Canvas App (5 min)
+
+1. Still in **PolicyServicingRequestDesk** solution
+2. New → App → Canvas
+3. Name: **PolicyRequestDesk**
+4. Format: **Tablet**
+5. Create blank app
+
+**Basic Screen Structure** (detailed in POWER-APPS/):
+```
+Screen 1: Home/Dashboard
+- Title, quick stats buttons
+
+Screen 2: Policy Search  
+- Input policy#, search button
+- Display policy details
+
+Screen 3: Request Form
+- Request type dropdown
+- Eligibility check button
+- Submit button
+
+Screen 4: Status Dashboard
+- List of requests with status
+- Select to view details & history
+```
+
+Save app to solution.
+
+### 4c. Create Power Automate Flows (5 min)
+
+1. Go to: https://make.powerautomate.com
+2. Environment: **InsuranceDemo**
+3. Create → Cloud flow → Automated cloud flow
+
+**Create 4 Flows** (save each to solution):
+
+| Flow | Trigger | Actions |
+|---|---|---|
+| **Create Request** | When app calls | Create request record, call eligibility check |
+| **Eligibility Check** | Manual trigger | Check policy rules, return eligible/not |
+| **Status Update** | Manual trigger | Update request, create history, send email |
+| **Audit Log** | When request updated | Log changes to audit table |
+
+**Flow Details:**
+- See POWER-AUTOMATE/ for templates
+- Flows can be very simple for MVP
+- Start basic, enhance later
+
+---
+
+## Step 5: Configure Copilot Agent (5 minutes)
+
+1. Go to: https://copilotstudio.microsoft.com
+2. Environment: **InsuranceDemo**
+3. Create → New bot
+4. Name: **PolicyServiceAgent**
+
+**Add Topics** (basic setup):
+
+Topic 1: **Status Inquiry**
+- Trigger: "What's my status?"
+- Message: "Ask for request ID"
+- Action: Query Dataverse for status
+
+Topic 2: **Help**
+- Trigger: "Help" or "What can I do?"
+- Message: List available request types
+- Action: Link to Power Apps
+
+**Note:** Copilot can be simple for MVP. Enhance later with more capabilities.
+
+---
+
+## Step 6: Test Everything (5 minutes)
+
+### Quick Test Checklist
+
+- [ ] **Test Policy Creation:**
+  - Go to PowerApps → PolicyRequestDesk
+  - Create test policy manually in policy table first
+  - Verify it appears
+
+- [ ] **Test Request Creation:**
+  - Search for test policy
+  - Fill form for address change
+  - Check eligibility
+  - Submit request
+
+- [ ] **Test Flows:**
+  - Go to Power Automate → Cloud flows
+  - Open "Create Request" flow
+  - Click Test → Provide test data → Run
+  - Check for errors
+
+- [ ] **Test Status Tracking:**
+  - Go to "Track Request" in app
+  - Find your test request
+  - Verify status and history visible
+
+- [ ] **Test Copilot:**
+  - Go to Copilot Studio
+  - Click "Test" button
+  - Ask "What's the status?"
+  - Verify agent responds
+
+---
+
+## Step 7: Export Solution (2 minutes)
+
+```powershell
+# Export for backup/deployment
+cd C:\Users\vmuser\Desktop\PolicyServicingRequestDesk\DEPLOYMENT
+
+pac auth select --environment InsuranceDemo
+
+pac solution export `
+  --path ".\PolicyServicingRequestDesk.zip" `
+  --name "PolicyServicingRequestDesk" `
+  --managed
+
+# File created: PolicyServicingRequestDesk_managed.zip
 ```
 
 ---
 
-## Troubleshooting
+## Step 8: Share with Team (2 minutes)
 
-### App doesn't load at http://localhost:3000
-```bash
-# Kill process on port 3000
-lsof -i :3000 | awk 'NR>1 {print $2}' | xargs kill -9
+### Add Users to App
 
-# Or use Windows (in PowerShell):
-netstat -ano | findstr :3000
-taskkill /PID <PID> /F
+1. https://make.powerapps.com → Apps
+2. PolicyRequestDesk → Share
+3. Add team member emails
+4. Permission: "Can use" or "Can edit"
+5. Share
 
-# Restart
-npm run dev
+### Send Access Email
+
 ```
+Subject: Policy Servicing Request Desk - Access Ready
 
-### Type errors in editor
-```bash
-# Clear cache and reinstall
-rm -rf node_modules
-npm install
-npm run type-check
+Hi Team,
+
+The new Policy Request Desk is ready for testing!
+
+Go here to use the app:
+[Link from Share dialog]
+
+For help, see:
+- User Guide: DOCUMENTATION/user-guide.md
+- FAQ: See bottom of user guide
+
+Questions? Contact [Your Email]
+
+Thanks!
 ```
-
-### Import not found error
-- Verify path aliases in `tsconfig.json` (@/* → src/*)
-- Use correct file extension (.ts, .tsx)
-- Check file actually exists in src folder
 
 ---
 
-## Key Technologies
+## Done! 🎉
 
-| Technology | Version | Purpose |
-|------------|---------|---------|
-| React | 18 | UI framework |
-| TypeScript | 5.9 | Type safety |
-| Fluent UI | 9 | Microsoft components |
-| Vite | 5.4 | Build tool |
-| Zustand | 5 | State management |
-| TanStack Query | 5 | Data caching |
-| React Router | 6 | Navigation |
+Your MVP solution is now live and ready to test. 
+
+### Next Steps
+
+**Immediately:**
+- [ ] Test with sample data
+- [ ] Gather feedback from team
+- [ ] Fix any issues found
+
+**This Week:**
+- [ ] Enhanced flows (add more logic)
+- [ ] Better UI (design more screens)
+- [ ] Email templates (customize messages)
+
+**Next Sprint:**
+- [ ] Security roles & permissions
+- [ ] Advanced Copilot capabilities
+- [ ] Mobile optimization
+- [ ] Performance optimization
+- [ ] Production deployment
 
 ---
 
-## Documentation
+## Troubleshooting Quick Fixes
 
-| Document | Purpose |
-|----------|---------|
-| [DEVELOPMENT_GUIDE.md](docs/DEVELOPMENT_GUIDE.md) | How to develop locally |
-| [DEPLOYMENT_GUIDE.md](docs/DEPLOYMENT_GUIDE.md) | Deployment to Power Platform |
-| [TESTING_GUIDE.md](docs/TESTING_GUIDE.md) | Testing strategies & execution |
-| [ARCHITECTURE.md](docs/ARCHITECTURE.md) | System design & patterns |
-| [README.md](README.md) | Project overview |
+| Problem | Quick Fix |
+|---|---|
+| Environment creation fails | Try different region: `--region europe` |
+| Can't see PolicyRequestDesk solution | Refresh page (F5) or check correct environment selected |
+| Flow won't run | Make sure all connections authorized (e.g., Dataverse, Office 365 Mail) |
+| App loads slowly | It's normal first load. Wait 10-15 seconds. |
+| Email not sending | Verify Office 365 mailbox connected and authorized in flow |
+| Copilot doesn't respond | Check topics are published, not in draft mode |
+
+---
+
+## Full Documentation
+
+For detailed info, see:
+- **Setup Steps:** IMPLEMENTATION_GUIDE.md
+- **System Design:** ARCHITECTURE.md
+- **Database Schema:** CONFIGURATION/dataverse-schema.md
+- **User Help:** DOCUMENTATION/user-guide.md
+- **Admin Help:** DOCUMENTATION/admin-guide.md
 
 ---
 
 ## Support
 
-**Having issues?**
-1. Check [DEVELOPMENT_GUIDE.md](docs/DEVELOPMENT_GUIDE.md) Troubleshooting section
-2. Review error message in console (F12)
-3. Check Application Insights logs (if configured)
-4. See [TESTING_GUIDE.md](docs/TESTING_GUIDE.md) for test failures
+**Need Help?**
+- Check DOCUMENTATION/user-guide.md for user FAQs
+- Check DOCUMENTATION/admin-guide.md for admin troubleshooting
+- See TROUBLESHOOTING section in guides
+- Contact your Power Platform admin
 
 ---
 
-## Next Command
-```bash
-npm run dev
-```
+**Estimated Total Time:** 30-45 minutes ⏱️
 
-Then open: **http://localhost:3000** 🚀
+**Complexity:** Easy - Just follow steps above!
+
+**Result:** Fully functional MVP ready for team testing
+
+---
+
+**Created:** September 2024  
+**Status:** Ready to Deploy  
+**Version:** 1.0 MVP

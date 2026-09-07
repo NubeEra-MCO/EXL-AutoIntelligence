@@ -1,0 +1,212 @@
+{
+  "policies": [
+    {
+      "policyNumber": "INS-2024-001",
+      "customerName": "Sarah Johnson",
+      "customerEmail": "sarah.johnson@email.com",
+      "customerPhone": "+1-555-0101",
+      "policyStatus": "Active",
+      "premiumAmount": 200,
+      "premiumMode": "Annual",
+      "billingAddress": "123 Oak Street, Springfield, IL 62701",
+      "coverageType": "Life",
+      "policyStartDate": "2023-01-15",
+      "policyEndDate": "2025-01-14",
+      "lastPaymentDate": "2024-08-15",
+      "paymentDefaults": 0,
+      "outstandingClaims": false,
+      "notes": "Premium customer, no issues"
+    },
+    {
+      "policyNumber": "INS-2024-002",
+      "customerName": "Michael Chen",
+      "customerEmail": "m.chen@email.com",
+      "customerPhone": "+1-555-0102",
+      "policyStatus": "Active",
+      "premiumAmount": 150,
+      "premiumMode": "Monthly",
+      "billingAddress": "456 Elm Avenue, Chicago, IL 60601",
+      "coverageType": "Health",
+      "policyStartDate": "2022-06-01",
+      "policyEndDate": "2025-05-31",
+      "lastPaymentDate": "2024-08-01",
+      "paymentDefaults": 0,
+      "outstandingClaims": true,
+      "notes": "Claim filed July 2024"
+    },
+    {
+      "policyNumber": "INS-2024-003",
+      "customerName": "Emily Rodriguez",
+      "customerEmail": "e.rodriguez@email.com",
+      "customerPhone": "+1-555-0103",
+      "policyStatus": "Inactive",
+      "premiumAmount": 250,
+      "premiumMode": "Quarterly",
+      "billingAddress": "789 Pine Road, Denver, CO 80202",
+      "coverageType": "Auto",
+      "policyStartDate": "2021-03-20",
+      "policyEndDate": "2024-03-19",
+      "lastPaymentDate": "2024-02-20",
+      "paymentDefaults": 1,
+      "outstandingClaims": false,
+      "notes": "Policy expired, customer exploring renewal"
+    },
+    {
+      "policyNumber": "INS-2024-004",
+      "customerName": "James Wilson",
+      "customerEmail": "j.wilson@email.com",
+      "customerPhone": "+1-555-0104",
+      "policyStatus": "Suspended",
+      "premiumAmount": 300,
+      "premiumMode": "Annual",
+      "billingAddress": "321 Birch Lane, Boston, MA 02101",
+      "coverageType": "Home",
+      "policyStartDate": "2020-09-10",
+      "policyEndDate": "2025-09-09",
+      "lastPaymentDate": "2024-03-10",
+      "paymentDefaults": 3,
+      "outstandingClaims": false,
+      "notes": "Suspended due to non-payment. Customer contacted about payment plan"
+    },
+    {
+      "policyNumber": "INS-2024-005",
+      "customerName": "Linda Martinez",
+      "customerEmail": "l.martinez@email.com",
+      "customerPhone": "+1-555-0105",
+      "policyStatus": "Active",
+      "premiumAmount": 175,
+      "premiumMode": "Annual",
+      "billingAddress": "654 Maple Drive, Seattle, WA 98101",
+      "coverageType": "Life",
+      "policyStartDate": "2023-05-01",
+      "policyEndDate": "2025-04-30",
+      "lastPaymentDate": "2024-08-01",
+      "paymentDefaults": 0,
+      "outstandingClaims": false,
+      "notes": "New policy holder, very responsive"
+    }
+  ],
+  "requests": [
+    {
+      "policyReference": "INS-2024-001",
+      "requestType": "AddressChange",
+      "requestStatus": "Submitted",
+      "priority": "Medium",
+      "requestedBy": "Sarah Johnson",
+      "requestedDate": "2024-09-01T10:30:00Z",
+      "requestDetails": "Moving to new address: 999 Sunflower Circle, Springfield, IL 62702. Same city, different neighborhood.",
+      "isEligible": true,
+      "eligibilityCheckResult": "Policy status is Active. Address change eligibility check passed."
+    },
+    {
+      "policyReference": "INS-2024-002",
+      "requestType": "NomineeChange",
+      "requestStatus": "Eligible",
+      "priority": "High",
+      "requestedBy": "Michael Chen",
+      "requestedDate": "2024-09-02T14:15:00Z",
+      "requestDetails": "Change nominee from mother (Lisa Chen) to wife (Amanda Chen). Wife is spouse.",
+      "isEligible": false,
+      "eligibilityCheckResult": "Policy has outstanding claims. Nominee change is not eligible at this time."
+    },
+    {
+      "policyReference": "INS-2024-003",
+      "requestType": "PremiumModeChange",
+      "requestStatus": "Rejected",
+      "priority": "Medium",
+      "requestedBy": "Emily Rodriguez",
+      "requestedDate": "2024-09-03T09:00:00Z",
+      "requestDetails": "Request to change from Quarterly to Monthly payments.",
+      "isEligible": false,
+      "eligibilityCheckResult": "Policy status is Inactive. Premium mode changes not available for inactive policies."
+    },
+    {
+      "policyReference": "INS-2024-005",
+      "requestType": "InfoUpdate",
+      "requestStatus": "Draft",
+      "priority": "Low",
+      "requestedBy": "Linda Martinez",
+      "requestedDate": "2024-09-04T16:45:00Z",
+      "requestDetails": "Update email to l.martinez@newemail.com and phone to +1-555-0999",
+      "isEligible": true,
+      "eligibilityCheckResult": "Policy is Active. Information update is eligible."
+    }
+  ],
+  "statusHistoryEntries": [
+    {
+      "requestReference": "REQ-2024-001",
+      "previousStatus": null,
+      "currentStatus": "Draft",
+      "statusChangeReason": "Request created",
+      "changedBy": "System",
+      "changedOn": "2024-09-01T10:30:00Z",
+      "internalNotes": "Customer initiated request via portal",
+      "customerNotificationSent": false
+    },
+    {
+      "requestReference": "REQ-2024-001",
+      "previousStatus": "Draft",
+      "currentStatus": "Submitted",
+      "statusChangeReason": "Customer submitted for processing",
+      "changedBy": "Sarah Johnson",
+      "changedOn": "2024-09-01T10:35:00Z",
+      "internalNotes": "Ready for eligibility check",
+      "customerNotificationSent": true,
+      "notificationMethod": "Email"
+    },
+    {
+      "requestReference": "REQ-2024-001",
+      "previousStatus": "Submitted",
+      "currentStatus": "Eligible",
+      "statusChangeReason": "Eligibility check passed",
+      "changedBy": "EligibilityCheckFlow",
+      "changedOn": "2024-09-01T10:40:00Z",
+      "internalNotes": "Auto-approved by eligibility engine",
+      "customerNotificationSent": true,
+      "notificationMethod": "Email"
+    },
+    {
+      "requestReference": "REQ-2024-001",
+      "previousStatus": "Eligible",
+      "currentStatus": "Completed",
+      "statusChangeReason": "Address change processed and updated in system",
+      "changedBy": "system@company.com",
+      "changedOn": "2024-09-02T08:00:00Z",
+      "internalNotes": "Policy record updated with new address",
+      "customerNotificationSent": true,
+      "notificationMethod": "Email"
+    }
+  ],
+  "auditLogEntries": [
+    {
+      "actionType": "Created",
+      "fieldName": null,
+      "oldValue": null,
+      "newValue": null,
+      "modifiedBy": "Sarah Johnson",
+      "modifiedOn": "2024-09-01T10:30:00Z",
+      "actionDetails": "New address change request created for policy INS-2024-001"
+    },
+    {
+      "actionType": "Updated",
+      "fieldName": "billingAddress",
+      "oldValue": "123 Oak Street, Springfield, IL 62701",
+      "newValue": "999 Sunflower Circle, Springfield, IL 62702",
+      "modifiedBy": "system@company.com",
+      "modifiedOn": "2024-09-02T08:00:00Z",
+      "actionDetails": "Address updated via completed request REQ-2024-001",
+      "ipAddress": "192.168.1.100"
+    },
+    {
+      "actionType": "Rejected",
+      "fieldName": null,
+      "oldValue": null,
+      "newValue": null,
+      "modifiedBy": "EligibilityCheckFlow",
+      "modifiedOn": "2024-09-03T09:05:00Z",
+      "actionDetails": "Premium mode change request rejected - policy must be Active",
+      "failureReasons": "Policy status is Inactive"
+    }
+  ],
+  "testDataNotes": "This sample data includes:\n- 5 test policies with various statuses (Active, Inactive, Suspended, etc.)\n- 4 test requests representing each request type\n- Status history entries showing complete lifecycle of one request\n- Audit log entries demonstrating change tracking\n\nUse this data to test the solution functionality before deploying to production."
+}

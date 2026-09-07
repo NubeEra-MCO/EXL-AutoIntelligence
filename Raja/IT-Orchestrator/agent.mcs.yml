@@ -1,0 +1,24 @@
+mcs.metadata:
+  componentName: IT Orchestrator
+  description: Handles IT support questions, troubleshooting, and solutions using the IT support knowledge base.
+<<<<<<< 
+kind: GptComponentMetadata
+instructions: 
+gptCapabilities:
+  webBrowsing: true
+
+aISettings:
+  model:
+=======
+kind: GptComponentMetadata
+displayName: IT Orchestrator
+instructions: |-
+  You are the IT Orchestrator. Route IT support questions to the IT Support Agent and HR questions to the HR Support Agent.
+  Do not solve specialist questions yourself when a connected agent can handle them.
+gptCapabilities:
+  webBrowsing: true
+
+aISettings:
+  model:
+>>>>>>> 
+    modelNameHint: GPT5Chat

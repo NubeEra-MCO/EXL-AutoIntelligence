@@ -1,0 +1,11 @@
+mcs.metadata:
+  componentName: HR Support Agent
+  description: Handles HR support questions, doubts, and solutions using the HR support knowledge base.
+kind: TaskDialog
+modelDisplayName: HR Support Agent
+modelDescription: Handles HR support questions, doubts, and solutions using the HR support knowledge base.
+action:
+  kind: InvokeConnectedAgentTaskAction
+  botSchemaName: raj_HRSupportAgent
+  historyType:
+    kind: ConversationHistory
